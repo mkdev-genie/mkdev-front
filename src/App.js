@@ -1,8 +1,8 @@
-import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Home from "./pages/Home";
-import Question from "./pages/Question";
-import Result from "./pages/Result";
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Home from './pages/Home';
+import Question from './pages/Question';
+import Result from './pages/Result';
 
 const App = () => (
   <BrowserRouter>
