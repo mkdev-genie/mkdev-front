@@ -7,6 +7,9 @@ import SubTitle from '../components/SubTitle';
 import RoundedText from '../components/RoundedText';
 import ShareButton from '../components/ShareButton';
 import tmp from '../imgs/tmp.png';
+import IconFacebook from '../imgs/icon-facebook.svg';
+import IconKakao from '../imgs/icon-kakaotalk.svg';
+import IconLink from '../imgs/icon-link.svg';
 
 const Home = () => (
   <Group>
@@ -20,9 +23,15 @@ const Home = () => (
     </Link>
     <SubTitle>공유하기</SubTitle>
     <Share>
-      <ShareButton>kakao</ShareButton>
-      <ShareButton>facebook</ShareButton>
-      <ShareButton>link</ShareButton>
+      <ShareButton className="icon-kakao">
+        <img src={IconKakao} alt="kakaotalk" />
+      </ShareButton>
+      <ShareButton className="icon-facebook">
+        <img src={IconFacebook} alt="facebook" />
+      </ShareButton>
+      <ShareButton className="icon-link">
+        <img src={IconLink} alt="link" />
+      </ShareButton>
     </Share>
   </Group>
 );
@@ -46,11 +55,11 @@ const Share = styled.div`
 `;
 
 const Image = styled.div`
-  background-image: url(${tmp});
   width: 335px;
   height: 200px;
   margin-top: 10px;
   margin-bottom: 10px;
+  background-image: url(${tmp});
 `;
 
 export default Home;
