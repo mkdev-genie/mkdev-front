@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 
 const MainTitle = ({ children }) => (
   <StyledTitle>
-    &#123;
+    <StyledBrace>&#123;</StyledBrace>
     {children}
-    &#125;
+    <StyledBrace>&#125;</StyledBrace>
   </StyledTitle>
 );
 
@@ -16,10 +16,6 @@ MainTitle.propTypes = {
 
 const StyledTitle = styled.div`
   position: flex;
-  width: 217px;
-  height: 36px;
-  left: 80px;
-  top: 99px;
 
   margin-bottom: 20px;
 
@@ -30,6 +26,11 @@ const StyledTitle = styled.div`
   line-height: 35px;
   text-align: center;
 
+  color: white;
+`;
+
+const StyledBrace = styled.span`
+  padding: 0 10px;
   color: #553ff5;
 `;
 

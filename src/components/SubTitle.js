@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 
 const SubTitle = ({ children }) => (
   <StyledTitle>
-    &#123;
+    <StyledBrace>&#123;</StyledBrace>
     {children}
-    &#125;
+    <StyledBrace>&#125;</StyledBrace>
   </StyledTitle>
 );
 
@@ -16,20 +16,18 @@ SubTitle.propTypes = {
 
 const StyledTitle = styled.div`
   position: flex;
-  width: 217px;
-  height: 36px;
-  left: 80px;
-  top: 99px;
-
   margin-top: 50px;
-
+  color: white;
   font-family: Noto Sans HK;
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
   line-height: 35px;
   text-align: center;
+`;
 
+const StyledBrace = styled.span`
+  padding: 0 10px;
   color: #e2f063;
 `;
 
