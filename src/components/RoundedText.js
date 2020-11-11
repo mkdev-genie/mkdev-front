@@ -19,6 +19,9 @@ const StyledText = styled.div`
   text-align: center;
   padding: 0.3rem;
   color: #e2f063;
+
+  margin-top: 15px;
+  margin-bottom: 20px;
 `;
 
 export default RoundedText;

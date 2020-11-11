@@ -21,6 +21,8 @@ const StyledTitle = styled.div`
   left: 80px;
   top: 99px;
 
+  margin-bottom: 20px;
+
   font-family: Noto Sans HK;
   font-style: normal;
   font-weight: bold;

@@ -24,11 +24,11 @@ const StyledTitle = styled.div`
   font-family: Noto Sans HK;
   font-style: normal;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 35px;
   text-align: center;
 
-  color: #553ff5;
+  color: #e2f063;
 `;
 
 export default SubTitle;
