@@ -9,16 +9,15 @@ Button.propTypes = {
 };
 
 const StyledButton = styled.button`
-  background: #e2f063;
+  width: 335px;
+  padding: 0.5rem;
   border: none;
   border-radius: 10px;
-  padding: 0.5rem;
+  background: #e2f063;
   font-family: Noto Sans HK;
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
-
-  width: 335px;
 `;
 
 export default Button;

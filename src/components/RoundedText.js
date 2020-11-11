@@ -9,19 +9,18 @@ RoundedText.propTypes = {
 };
 
 const StyledText = styled.div`
+  padding: 0.3rem;
+  margin-top: 15px;
+  margin-bottom: 20px;
   border: solid;
   border-radius: 15px;
+  color: #e2f063;
   font-family: Noto Sans KR;
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
   line-height: 20px;
   text-align: center;
-  padding: 0.3rem;
-  color: #e2f063;
-
-  margin-top: 15px;
-  margin-bottom: 20px;
 `;
 
 export default RoundedText;
