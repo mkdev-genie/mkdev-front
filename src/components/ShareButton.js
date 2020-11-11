@@ -14,13 +14,22 @@ ShareButton.propTypes = {
 const StyledShareButton = styled.button`
   width: 4em;
   height: 4em;
-  border-radius: 1em;
-  border: none;
   margin-right: 10px;
   margin-bottom: 50px;
-
+  border-radius: 1em;
+  border: none;
   border: 2px solid #e2f063;
+  background-color: white;
   box-sizing: border-box;
+  &.icon-kakao {
+    border: 2px solid #e2f063;
+  }
+  &.icon-facebook {
+    border: 2px solid #e2f063;
+  }
+  &.icon-link {
+    border: 2px solid gray;
+  }
 `;
 
 export default ShareButton;
