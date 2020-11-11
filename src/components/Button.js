@@ -18,6 +18,9 @@ const StyledButton = styled.button`
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
+  &:hover {
+    background: yellow;
+  }
 `;
 
 export default Button;
