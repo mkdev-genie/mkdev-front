@@ -16,7 +16,9 @@ const StyledButton = styled.button`
   font-family: Noto Sans HK;
   font-style: normal;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 18px;
+
+  width: 335px;
 `;
 
 export default Button;
