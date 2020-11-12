@@ -16,16 +16,13 @@ MainTitle.propTypes = {
 
 const StyledTitle = styled.div`
   position: flex;
-
   margin-bottom: 20px;
-
   font-family: Noto Sans HK;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
   line-height: 35px;
   text-align: center;
-
   color: white;
 `;
 
