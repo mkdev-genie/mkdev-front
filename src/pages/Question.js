@@ -24,9 +24,9 @@ const Question = () => {
       <StyledQ>나는 css가 좋다</StyledQ>
       <Image>그림</Image>
       <Button onClick={onIncrease}>보기 1</Button>
-      <Button>보기 2</Button>
-      <Button>보기 3</Button>
-      <Button>보기 4</Button>
+      <Button onClick={onIncrease}>보기 2</Button>
+      <Button onClick={onIncrease}>보기 3</Button>
+      <Button onClick={onIncrease}>보기 4</Button>
     </Group>
   );
 };
