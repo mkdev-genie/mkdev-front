@@ -8,12 +8,9 @@ import tmp from '../imgs/tmp.png';
 const Question = () => {
   const [num, setNum] = useState(1);
   const onIncrease = () => {
-    if (num === 20) {
-      return;
-    }
     setNum(num + 1);
   };
-  if (num === 20) return <Result />;
+  if (num === 21) return <Result />;
   return (
     <Group>
       <ProgressBar>progress bar</ProgressBar>
