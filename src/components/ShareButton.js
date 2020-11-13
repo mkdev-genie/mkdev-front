@@ -20,6 +20,9 @@ const StyledShareButton = styled.button`
   border: 2px solid #e2f063;
   background-color: black;
   box-sizing: border-box;
+  &: hover {
+    cursor: pointer;
+  }
   &.icon-kakao {
     border: 3px solid #e2f063;
   }

@@ -22,6 +22,7 @@ const StyledButton = styled.button`
   font-weight: bold;
   font-size: 18px;
   &:hover {
+    cursor: pointer;
     background: yellow;
   }
 `;
