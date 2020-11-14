@@ -24,7 +24,8 @@ Button.propTypes = {
 
 const StyledLight = styled.button`
   width: 335px;
-  padding: 0.3rem;
+  padding: 0.5rem;
+  margin-bottom: 15px;
   border: 2px solid #e2f063;
   border-radius: 10px;
   background: transparent;
