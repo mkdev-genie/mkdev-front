@@ -1,26 +1,22 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import LoadingBar from 'react-top-loading-bar';
+import { Line } from 'rc-progress';
 import Result from './Result';
 import Button from '../components/Button';
 import tmp from '../imgs/tmp.png';
 
 const Question = () => {
-  const [progress, setProgress] = useState(0);
+  const [percent, setPercent] = useState(5);
   const [num, setNum] = useState(1);
   const onIncrease = () => {
     setNum(num + 1);
+    setPercent(percent + 5);
   };
   if (num === 21) return <Result />;
   return (
     <Group>
-      <LoadingBar
-        color="#8be8a9"
-        progress={progress}
-        onLoaderFinished={() => setProgress(0)}
-      />
       <ProgressBar>
-        <Progress>{}</Progress>
+        <Line percent={percent} strokeWidth="4" strokeColor="#8be8a9" />
       </ProgressBar>
       <TtlNum>
         <QNum>{num}</QNum>
@@ -31,7 +27,7 @@ const Question = () => {
       <Button onClick={onIncrease} type="light">
         보기 1
       </Button>
-      <Button onClick={() => setProgress(progress + 10)} type="light">
+      <Button onClick={onIncrease} type="light">
         보기 2
       </Button>
       <Button onClick={onIncrease} type="light">
@@ -52,20 +48,13 @@ const Group = styled.div`
   align-items: center;
 `;
 
-const Progress = styled.div`
-  width: 67px;
-  height: 9px; //border이 2px이라서 13 - 4 = 9
-  background: #8be8a9;
-  border-radius: 19px;
-`;
-
 const ProgressBar = styled.div`
   width: 348px;
   height: 13px;
   margin: 10px 10px;
-  border: 2px solid #8be8a9;
-  box-sizing: border-box;
-  border-radius: 19px;
+  // border: 2px solid #8be8a9;
+  // box-sizing: border-box;
+  // border-radius: 19px;
   // color: #8be8a9;
 `;
 
