@@ -6,16 +6,15 @@ import tmp from '../imgs/tmp.png';
 
 const Question = () => {
   const [num, setNum] = useState(1);
-  let steps = Math.floor(num / 20 * 100);
+  const steps = Math.floor((num / 20) * 100);
   const onIncrease = () => {
     setNum(num + 1);
   };
-  //여기 린트 절실...
-  if (num === 21) return (<Redirect to="/result"></Redirect>);
+  if (num === 21) return <Redirect to="/result" />;
   return (
     <Group>
       <ProgressBar>
-        <Progress width={steps}></Progress>
+        <Progress width={steps} />
       </ProgressBar>
       <TtlNum>
         <QNum>{num}</QNum>
@@ -48,7 +47,7 @@ const Group = styled.div`
 `;
 
 const Progress = styled.div`
-  width: ${props => props.width}%;
+  width: ${(props) => props.width}%;
   height: 9px;
   background: #8be8a9;
   border-radius: 19px;
