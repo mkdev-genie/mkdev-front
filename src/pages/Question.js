@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Line } from 'rc-progress';
-import Result from './Result';
+import { Link } from 'react-router-dom';
+// import Result from './Result';
 import Button from '../components/Button';
 import tmp from '../imgs/tmp.png';
 
 const Question = () => {
-  const [percent, setPercent] = useState(5);
   const [num, setNum] = useState(1);
+  let steps = Math.floor(num / 20 * 100);
   const onIncrease = () => {
     setNum(num + 1);
-    setPercent(percent + 5);
   };
-  if (num === 21) return <Result />;
+  //여기 린트 절실...
+  if (num === 21) return (<Link to="/result">결과보기</Link>);
   return (
     <Group>
       <ProgressBar>
-        <Line percent={percent} strokeWidth="4" strokeColor="#8be8a9" />
+        <Progress width={steps}></Progress>
       </ProgressBar>
       <TtlNum>
         <QNum>{num}</QNum>
@@ -48,14 +48,21 @@ const Group = styled.div`
   align-items: center;
 `;
 
+const Progress = styled.div`
+  width: ${props => props.width}%;
+  height: 9px;
+  background: #8be8a9;
+  border-radius: 19px;
+`;
+
 const ProgressBar = styled.div`
   width: 348px;
   height: 13px;
   margin: 10px 10px;
-  // border: 2px solid #8be8a9;
-  // box-sizing: border-box;
-  // border-radius: 19px;
-  // color: #8be8a9;
+  border: 2px solid #8be8a9;
+  box-sizing: border-box;
+  border-radius: 19px;
+  color: #8be8a9;
 `;
 
 const QNum = styled.div`
