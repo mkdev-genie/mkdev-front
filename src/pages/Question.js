@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-// import Result from './Result';
+import { Redirect } from 'react-router-dom';
 import Button from '../components/Button';
 import tmp from '../imgs/tmp.png';
 
@@ -12,7 +11,7 @@ const Question = () => {
     setNum(num + 1);
   };
   //여기 린트 절실...
-  if (num === 21) return (<Link to="/result">결과보기</Link>);
+  if (num === 21) return (<Redirect to="/result"></Redirect>);
   return (
     <Group>
       <ProgressBar>
