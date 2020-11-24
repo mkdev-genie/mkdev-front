@@ -13,7 +13,7 @@ const Result = () => (
     <RoundedText>당신에게 어울리는 개발 포지션은</RoundedText>
     <div>눈에 1px이 거슬립니다</div>
     <div>프론트엔드 개발자</div>
-    <Image></Image>
+    <Image />
     <div>어쩌구 저쩌구 설명</div>
     <SubTitle>나의 개발 다이어그램</SubTitle>
     <div>그래프</div>
