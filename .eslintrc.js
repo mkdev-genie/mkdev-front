@@ -10,4 +10,11 @@ module.exports = {
     'no-console': ['off'],
     'react/jsx-props-no-spreading': ['warn'],
   },
+  settings: {
+    "import/resolver": {
+      "alias": {
+        "map": [["@", "./src"]]
+      }
+    }
+  }
 };
