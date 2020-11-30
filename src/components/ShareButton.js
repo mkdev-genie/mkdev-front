@@ -14,29 +14,29 @@ ShareButton.propTypes = {
 const StyledShareButton = styled.button`
   width: 4em;
   height: 4em;
-  margin: 0 5px;
+  margin: ${({ theme }) => theme.spacing[1]};
   border-radius: 1em;
   border: none;
-  border: 2px solid ${({ theme }) => theme.color.primary};
+  border: 1px solid ${({ theme }) => theme.color.primary};
   background-color: black;
   box-sizing: border-box;
   &:hover {
     cursor: pointer;
   }
   &.icon-kakao {
-    border: 3px solid ${({ theme }) => theme.color.primary};
+    border: 1px solid ${({ theme }) => theme.color.primary};
   }
   &.icon-kakao:hover {
     background-color: ${({ theme }) => theme.color.primary};
   }
   &.icon-facebook {
-    border: 3px solid ${({ theme }) => theme.color.secondary};
+    border: 1px solid ${({ theme }) => theme.color.secondary};
   }
   &.icon-facebook:hover {
     background-color: ${({ theme }) => theme.color.secondary};
   }
   &.icon-link {
-    border: 3px solid ${({ theme }) => theme.color.gray};
+    border: 1px solid ${({ theme }) => theme.color.gray};
   }
   &.icon-link:hover {
     background-color: ${({ theme }) => theme.color.gray};

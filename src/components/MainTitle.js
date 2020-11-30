@@ -15,17 +15,16 @@ MainTitle.propTypes = {
 };
 
 const StyledTitle = styled.div`
-  margin-bottom: 20px;
-  font: ${({ theme }) => theme.font.bold};
+  margin-bottom: ${({ theme }) => theme.spacing[3]};
+  font-size: ${({ theme }) => theme.fontSize.lg};
   font-weight: 500;
-  font-size: 24px;
   line-height: 35px;
   text-align: center;
   color: ${({ theme }) => theme.color.light};
 `;
 
 const StyledBrace = styled.span`
-  padding: 0 10px;
+  padding: 0 ${({ theme }) => theme.spacing[1]};
   color: ${({ theme }) => theme.color.secondary};
 `;
 

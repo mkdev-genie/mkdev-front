@@ -9,15 +9,14 @@ RoundedText.propTypes = {
 };
 
 const StyledText = styled.div`
-  padding: 5px 15px;
-  margin-bottom: 20px;
+  padding: ${({ theme }) => theme.spacing[1]} ${({ theme }) => theme.spacing[2]};
+  margin-bottom: ${({ theme }) => theme.spacing[2]};
   border: 1px solid ${({ theme }) => theme.color.primary};
   border-radius: 15px;
   color: ${({ theme }) => theme.color.primary};
-  font-family: Noto Sans KR;
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: ${({ theme }) => theme.fontSize.sm};
   text-align: center;
 `;
 
