@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Redirect } from 'react-router-dom';
-import Button from '../components/Button';
-import tmp from '../imgs/tmp.png';
+import Button from '@/components/Button';
+import tmp from '@/assets/images/tmp.png';
 
 const Question = () => {
   const [num, setNum] = useState(1);
@@ -49,7 +49,7 @@ const Group = styled.div`
 const Progress = styled.div`
   width: ${(props) => props.width}%;
   height: 9px;
-  background: #8be8a9;
+  background: ${({ theme }) => theme.color.tertiary};
   border-radius: 19px;
 `;
 
@@ -57,10 +57,10 @@ const ProgressBar = styled.div`
   width: 348px;
   height: 13px;
   margin: 10px 10px;
-  border: 2px solid #8be8a9;
+  border: 2px solid ${({ theme }) => theme.color.tertiary};
   box-sizing: border-box;
   border-radius: 19px;
-  color: #8be8a9;
+  color: ${({ theme }) => theme.color.tertiary};
 `;
 
 const QNum = styled.div`
@@ -70,7 +70,7 @@ const QNum = styled.div`
 
 const TtlNum = styled.div`
   display: flex;
-  color: #8be8a9;
+  color: ${({ theme }) => theme.color.tertiary};
   font-family: Noto Sans HK;
   font-style: normal;
   font-size: 23px;

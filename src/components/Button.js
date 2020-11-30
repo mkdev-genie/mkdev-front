@@ -26,10 +26,10 @@ const StyledLight = styled.button`
   width: 335px;
   padding: 0.5rem;
   margin-bottom: 15px;
-  border: 2px solid #e2f063;
+  border: 2px solid ${({ theme }) => theme.color.primary};
   border-radius: 10px;
   background: transparent;
-  color: #e2f063;
+  color: ${({ theme }) => theme.color.primary};
   font-family: Noto Sans HK;
   font-style: normal;
   font-weight: bold;
@@ -47,7 +47,7 @@ const StyledButton = styled.button`
   padding: 0.5rem;
   border: none;
   border-radius: 10px;
-  background: #e2f063;
+  background: ${({ theme }) => theme.color.primary};
   font-family: Noto Sans HK;
   font-style: normal;
   font-weight: bold;

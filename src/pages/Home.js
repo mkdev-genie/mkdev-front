@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Button from '../components/Button';
-import MainTitle from '../components/MainTitle';
-import SubTitle from '../components/SubTitle';
-import RoundedText from '../components/RoundedText';
-import ShareButton from '../components/ShareButton';
-import tmp from '../imgs/tmp.png';
-import IconFacebook from '../imgs/icon-facebook.svg';
-import IconKakao from '../imgs/icon-kakaotalk.svg';
-import IconLink from '../imgs/icon-link.svg';
+import Button from '@/components/Button';
+import MainTitle from '@/components/MainTitle';
+import SubTitle from '@/components/SubTitle';
+import RoundedText from '@/components/RoundedText';
+import ShareButton from '@/components/ShareButton';
+import tmp from '@/assets/images/tmp.png';
+import IconFacebook from '@/assets/images/icon-facebook.svg';
+import IconKakao from '@/assets/images/icon-kakaotalk.svg';
+import IconLink from '@/assets/images/icon-link.svg';
 
 const Home = () => (
   <Group>
@@ -39,7 +39,7 @@ const Home = () => (
 const Group = styled.div`
   display: flex;
   flex-direction: column;
-  background: black;
+  background: ${({ theme }) => theme.color.dark};
   justify-content: center;
   align-items: center;
 `;

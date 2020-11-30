@@ -15,20 +15,18 @@ MainTitle.propTypes = {
 };
 
 const StyledTitle = styled.div`
-  position: flex;
   margin-bottom: 20px;
-  font-family: Noto Sans HK;
-  font-style: normal;
-  font-weight: bold;
+  font: ${({ theme }) => theme.font.bold};
+  font-weight: 500;
   font-size: 24px;
   line-height: 35px;
   text-align: center;
-  color: white;
+  color: ${({ theme }) => theme.color.light};
 `;
 
 const StyledBrace = styled.span`
   padding: 0 10px;
-  color: #553ff5;
+  color: ${({ theme }) => theme.color.secondary};
 `;
 
 export default MainTitle;
