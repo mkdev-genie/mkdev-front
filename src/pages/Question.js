@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Redirect } from 'react-router-dom';
-import Button from '../components/Button';
-import tmp from '../imgs/tmp.png';
+import Button from '@/components/Button';
+import tmp from '@/assets/images/tmp.png';
 
 const Question = () => {
   const [num, setNum] = useState(1);
@@ -49,47 +49,44 @@ const Group = styled.div`
 const Progress = styled.div`
   width: ${(props) => props.width}%;
   height: 9px;
-  background: #8be8a9;
+  background: ${({ theme }) => theme.color.tertiary};
   border-radius: 19px;
 `;
 
 const ProgressBar = styled.div`
-  width: 348px;
-  height: 13px;
-  margin: 10px 10px;
-  border: 2px solid #8be8a9;
+  width: 100%;
+  height: 11px;
+  margin-bottom: ${({ theme }) => theme.spacing[3]};
+  border: 1px solid ${({ theme }) => theme.color.tertiary};
   box-sizing: border-box;
   border-radius: 19px;
-  color: #8be8a9;
+  color: ${({ theme }) => theme.color.tertiary};
 `;
 
 const QNum = styled.div`
-  font-weight: bold;
-  padding: 0 5px;
+  font-weight: 500;
+  padding: 0 ${({ theme }) => theme.spacing[1]};
 `;
 
 const TtlNum = styled.div`
   display: flex;
-  color: #8be8a9;
-  font-family: Noto Sans HK;
+  margin-bottom: ${({ theme }) => theme.spacing[1]};
+  color: ${({ theme }) => theme.color.tertiary};
   font-style: normal;
-  font-size: 23px;
+  font-size: ${({ theme }) => theme.fontSize.md};
 `;
 
 const StyledQ = styled.div`
-  margin: 0 5px;
   color: white;
-  font-family: Noto Sans HK;
   font-style: normal;
-  font-weight: bold;
-  font-size: 30px;
+  font-weight: 500;
+  font-size: ${({ theme }) => theme.fontSize.lg};
 `;
 
 const Image = styled.div`
-  width: 335px;
+  width: 100%;
   height: 200px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: ${({ theme }) => theme.spacing[5]} 0;
   background-image: url(${tmp});
 `;
 

@@ -15,20 +15,17 @@ MainTitle.propTypes = {
 };
 
 const StyledTitle = styled.div`
-  position: flex;
-  margin-bottom: 20px;
-  font-family: Noto Sans HK;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
+  margin-bottom: ${({ theme }) => theme.spacing[3]};
+  font-size: ${({ theme }) => theme.fontSize.lg};
+  font-weight: 500;
   line-height: 35px;
   text-align: center;
-  color: white;
+  color: ${({ theme }) => theme.color.light};
 `;
 
 const StyledBrace = styled.span`
-  padding: 0 10px;
-  color: #553ff5;
+  padding: 0 ${({ theme }) => theme.spacing[1]};
+  color: ${({ theme }) => theme.color.secondary};
 `;
 
 export default MainTitle;

@@ -9,17 +9,14 @@ RoundedText.propTypes = {
 };
 
 const StyledText = styled.div`
-  padding: 0.3rem;
-  margin-top: 15px;
-  margin-bottom: 20px;
-  border: 2px solid #e2f063;
+  padding: ${({ theme }) => theme.spacing[1]} ${({ theme }) => theme.spacing[2]};
+  margin-bottom: ${({ theme }) => theme.spacing[2]};
+  border: 1px solid ${({ theme }) => theme.color.primary};
   border-radius: 15px;
-  color: #e2f063;
-  font-family: Noto Sans KR;
+  color: ${({ theme }) => theme.color.primary};
   font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 20px;
+  font-weight: 500;
+  font-size: ${({ theme }) => theme.fontSize.sm};
   text-align: center;
 `;
 
