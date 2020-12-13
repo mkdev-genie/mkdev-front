@@ -1,8 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import { Redirect } from 'react-router-dom';
 import Button from '@/components/Button';
 import tmp from '@/assets/images/tmp.png';
+
+const Parsing = () => {
+  const [info, setInfo] = useState();
+  useEffect(() => {
+    const apiCall = async () => {
+      const { data } = await axios.get('http://localhost:3000/questions');
+      const temp = data.resolved;
+      // console.log(temp.map((n) => n.content));
+      // console.log(data.resolved[0].choices[0].type2);
+      setInfo(temp);
+    };
+    apiCall();
+  }, []);
+  if (!info) return null;
+  return info;
+};
 
 const Question = () => {
   const [num, setNum] = useState(1);
@@ -11,6 +28,8 @@ const Question = () => {
     setNum(num + 1);
   };
   if (num === 21) return <Redirect to="/result" />;
+  const db = Parsing(num - 1);
+  // console.log(db);
   return (
     <Group>
       <ProgressBar>
@@ -20,7 +39,7 @@ const Question = () => {
         <QNum>{num}</QNum>
         /20
       </TtlNum>
-      <StyledQ>나는 css가 좋다</StyledQ>
+      {db && <StyledQ>{db[0].content}</StyledQ>}
       <Image>그림</Image>
       <Button onClick={onIncrease} type="light">
         보기 1
