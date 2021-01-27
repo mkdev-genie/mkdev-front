@@ -1,16 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import { Redirect } from 'react-router-dom';
 import Button from '@/components/Button';
 import tmp from '@/assets/images/tmp.png';
 
+const Parsing = () => {
+  const [info, setInfo] = useState();
+  useEffect(() => {
+    const apiCall = async () => {
+      const { data } = await axios.get('http://localhost:3000/questions');
+      const temp = data.resolved;
+      setInfo(temp);
+    };
+    apiCall();
+  }, []);
+
+  if (!info) return null;
+
+  return info;
+};
+
 const Question = () => {
+  const db = Parsing();
   const [num, setNum] = useState(1);
-  const steps = Math.floor((num / 20) * 100);
-  const onIncrease = () => {
+  const [type, setType] = useState(new Array(12).fill(0));
+  const steps = Math.floor((num / 14) * 100);
+
+  const onIncrease = (e) => {
     setNum(num + 1);
+    setType(
+      type.map((v, i) => v + db[num - 1].choices[e.target.id][`type${i + 1}`]),
+    );
   };
-  if (num === 21) return <Redirect to="/result" />;
+
+  if (num === 15) return <Redirect to="/result" />;
+
   return (
     <Group>
       <ProgressBar>
@@ -18,22 +43,18 @@ const Question = () => {
       </ProgressBar>
       <TtlNum>
         <QNum>{num}</QNum>
-        /20
+        /14
       </TtlNum>
-      <StyledQ>나는 css가 좋다</StyledQ>
+      {db && <StyledQ>{db[num - 1].content}</StyledQ>}
       <Image>그림</Image>
-      <Button onClick={onIncrease} type="light">
-        보기 1
-      </Button>
-      <Button onClick={onIncrease} type="light">
-        보기 2
-      </Button>
-      <Button onClick={onIncrease} type="light">
-        보기 3
-      </Button>
-      <Button onClick={onIncrease} type="light">
-        보기 4
-      </Button>
+      {db &&
+        db[num - 1].choices.map((choice, i) => {
+          return (
+            <Button onClick={onIncrease} type="light" id={i}>
+              {choice.content}
+            </Button>
+          );
+        })}
     </Group>
   );
 };

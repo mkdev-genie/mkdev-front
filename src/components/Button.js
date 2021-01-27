@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const Button = ({ onClick, type, children }) => (
-  <StyledButton onClick={onClick} type={type}>
+const Button = ({ onClick, type, children, id }) => (
+  <StyledButton onClick={onClick} type={type} id={id}>
     {children}
   </StyledButton>
 );
@@ -12,6 +12,7 @@ Button.propTypes = {
   onClick: PropTypes.node.isRequired,
   type: PropTypes.node.isRequired,
   children: PropTypes.node.isRequired,
+  id: PropTypes.node.isRequired,
 };
 
 const StyledButton = styled.button`
