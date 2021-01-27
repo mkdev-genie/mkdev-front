@@ -11,8 +11,6 @@ const Parsing = () => {
     const apiCall = async () => {
       const { data } = await axios.get('http://localhost:3000/questions');
       const temp = data.resolved;
-      // console.log(temp.map((n) => n.content));
-      // console.log(data.resolved[0].choices[0].type2);
       setInfo(temp);
     };
     apiCall();
@@ -23,13 +21,13 @@ const Parsing = () => {
 
 const Question = () => {
   const [num, setNum] = useState(1);
-  const steps = Math.floor((num / 20) * 100);
+  const steps = Math.floor((num / 14) * 100);
   const onIncrease = () => {
     setNum(num + 1);
   };
-  if (num === 21) return <Redirect to="/result" />;
-  const db = Parsing(num - 1);
-  // console.log(db);
+  if (num === 15) return <Redirect to="/result" />;
+  const db = Parsing();
+  console.log(db);
   return (
     <Group>
       <ProgressBar>
@@ -37,22 +35,16 @@ const Question = () => {
       </ProgressBar>
       <TtlNum>
         <QNum>{num}</QNum>
-        /20
+        /14
       </TtlNum>
-      {db && <StyledQ>{db[0].content}</StyledQ>}
+      {db && <StyledQ>{db[num - 1].content}</StyledQ>}
       <Image>그림</Image>
-      <Button onClick={onIncrease} type="light">
-        보기 1
-      </Button>
-      <Button onClick={onIncrease} type="light">
-        보기 2
-      </Button>
-      <Button onClick={onIncrease} type="light">
-        보기 3
-      </Button>
-      <Button onClick={onIncrease} type="light">
-        보기 4
-      </Button>
+      {db &&
+        db[num - 1].choices.map((choice) => (
+          <Button onClick={onIncrease} type="light">
+            {choice.content}
+          </Button>
+        ))}
     </Group>
   );
 };
