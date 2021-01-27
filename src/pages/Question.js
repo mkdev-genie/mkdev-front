@@ -15,42 +15,27 @@ const Parsing = () => {
     };
     apiCall();
   }, []);
+
   if (!info) return null;
+
   return info;
 };
 
 const Question = () => {
   const db = Parsing();
-  console.log(db);
-
   const [num, setNum] = useState(1);
-  const [type, setType] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-
+  const [type, setType] = useState(new Array(12).fill(0));
   const steps = Math.floor((num / 14) * 100);
 
   const onIncrease = (e) => {
     setNum(num + 1);
-    console.log(num);
-    console.log(e.target.id);
-    setType([
-      type[0] + db[num - 1].choices[e.target.id].type1,
-      type[1] + db[num - 1].choices[e.target.id].type2,
-      type[2] + db[num - 1].choices[e.target.id].type3,
-      type[3] + db[num - 1].choices[e.target.id].type4,
-      type[4] + db[num - 1].choices[e.target.id].type5,
-      type[5] + db[num - 1].choices[e.target.id].type6,
-      type[6] + db[num - 1].choices[e.target.id].type7,
-      type[7] + db[num - 1].choices[e.target.id].type8,
-      type[8] + db[num - 1].choices[e.target.id].type9,
-      type[9] + db[num - 1].choices[e.target.id].type10,
-      type[10] + db[num - 1].choices[e.target.id].type11,
-      type[11] + db[num - 1].choices[e.target.id].type12,
-    ]);
-    console.log(type);
-    // console.log(db[num - 1].choices[e.target.id].type1);
-    // console.log(e.target.id);
+    setType(
+      type.map((v, i) => v + db[num - 1].choices[e.target.id][`type${i + 1}`]),
+    );
   };
+
   if (num === 15) return <Redirect to="/result" />;
+
   return (
     <Group>
       <ProgressBar>
