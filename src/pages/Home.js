@@ -15,7 +15,7 @@ import IconLink from '@/assets/images/icon-link.svg';
 const Home = () => (
   <Group>
     <RoundedText>project. mkdev</RoundedText>
-    <MainTitle>개발 포지션 테스트</MainTitle>
+    <MainTitle gutterBottom>개발 포지션 테스트</MainTitle>
     <BodyText>
       개발에도 MBTI가 있다!
       <br />
