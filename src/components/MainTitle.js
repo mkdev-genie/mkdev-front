@@ -15,7 +15,7 @@ MainTitle.propTypes = {
 };
 
 const StyledTitle = styled.div`
-  margin-bottom: ${({ theme }) => theme.spacing[3]};
+  margin-bottom: ${({ theme }) => theme.spacing(3)};
   font-size: ${({ theme }) => theme.fontSize.lg};
   font-weight: 500;
   line-height: 35px;
@@ -24,7 +24,7 @@ const StyledTitle = styled.div`
 `;
 
 const StyledBrace = styled.span`
-  padding: 0 ${({ theme }) => theme.spacing[1]};
+  padding: 0 ${({ theme }) => theme.spacing(1)};
   color: ${({ theme }) => theme.color.secondary};
 `;
 

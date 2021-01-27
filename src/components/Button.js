@@ -17,8 +17,8 @@ Button.propTypes = {
 
 const StyledButton = styled.button`
   width: 100%;
-  padding: ${({ theme }) => theme.spacing[2]};
-  margin-top: ${({ theme }) => theme.spacing[2]};
+  padding: ${({ theme }) => theme.spacing(2)};
+  margin-top: ${({ theme }) => theme.spacing(2)};
   color: ${({ type, theme }) =>
     type === 'light' ? theme.color.primary : theme.color.dark};
   border: ${({ type, theme }) =>

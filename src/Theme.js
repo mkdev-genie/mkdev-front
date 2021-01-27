@@ -12,13 +12,7 @@ const theme = {
     gray: 'gray',
     light: '#FFF',
   },
-  spacing: {
-    1: '0.5rem',
-    2: '1rem',
-    3: '1.5rem',
-    4: '2rem',
-    5: '2.5rem',
-  },
+  spacing: (size) => `${size / 2}rem`,
   fonts: ['Noto Sans KR', 'sans-serif'],
   fontSize: {
     sm: '0.825rem',

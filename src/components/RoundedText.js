@@ -8,9 +8,11 @@ RoundedText.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-const StyledText = styled.div`
-  padding: ${({ theme }) => theme.spacing[1]} ${({ theme }) => theme.spacing[2]};
-  margin-bottom: ${({ theme }) => theme.spacing[2]};
+const StyledText = styled.span`
+  display: inline-block;
+  padding: ${({ theme }) => theme.spacing(1)} ${({ theme }) => theme.spacing(2)};
+  margin: 0 ${({ theme }) => theme.spacing(1)};
+  margin-bottom: ${({ theme }) => theme.spacing(2)};
   border: 1px solid ${({ theme }) => theme.color.primary};
   border-radius: 15px;
   color: ${({ theme }) => theme.color.primary};

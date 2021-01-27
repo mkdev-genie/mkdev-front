@@ -9,7 +9,7 @@ BodyText.propTypes = {
 };
 
 const StyledText = styled.div`
-  margin-bottom: ${({ theme }) => theme.spacing[1]};
+  margin-bottom: ${({ theme }) => theme.spacing(1)};
   text-align: center;
   line-height: 1.2rem;
   font-size: ${({ theme }) => theme.fontSize.xs};

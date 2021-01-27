@@ -61,7 +61,7 @@ const Share = styled.div`
 const Image = styled.div`
   width: 100%;
   height: 200px;
-  margin: ${({ theme }) => theme.spacing[5]} 0;
+  margin: ${({ theme }) => theme.spacing(5)} 0;
   background-image: url(${tmp});
 `;
 

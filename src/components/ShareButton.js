@@ -14,7 +14,7 @@ ShareButton.propTypes = {
 const StyledShareButton = styled.button`
   width: 4em;
   height: 4em;
-  margin: ${({ theme }) => theme.spacing[1]};
+  margin: ${({ theme }) => theme.spacing(1)};
   border-radius: 1em;
   border: none;
   border: 1px solid ${({ theme }) => theme.color.primary};
