@@ -16,8 +16,8 @@ SubTitle.propTypes = {
 
 const StyledTitle = styled.div`
   position: flex;
-  margin-top: ${({ theme }) => theme.spacing[5]};
-  margin-bottom: ${({ theme }) => theme.spacing[2]};
+  margin-top: ${({ theme }) => theme.spacing(5)};
+  margin-bottom: ${({ theme }) => theme.spacing(2)};
   color: white;
   font-style: normal;
   font-weight: 500;
@@ -27,7 +27,7 @@ const StyledTitle = styled.div`
 `;
 
 const StyledBrace = styled.span`
-  padding: 0 ${({ theme }) => theme.spacing[1]};
+  padding: 0 ${({ theme }) => theme.spacing(1)};
   color: #e2f063;
 `;
 

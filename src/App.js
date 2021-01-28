@@ -55,8 +55,8 @@ const GlobalStyle = createGlobalStyle`
   #root {
     width: 100%;
     max-width: 414px;
-    padding: ${({ theme }) => theme.spacing[5]} ${({ theme }) =>
-  theme.spacing[2]};
+    padding: ${({ theme }) => theme.spacing(5)} ${({ theme }) =>
+  theme.spacing(2)};
   }
 `;
 
