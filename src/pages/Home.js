@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Button from '@/components/Button';
 import MainTitle from '@/components/MainTitle';
@@ -29,22 +30,26 @@ import IconLink from '@/assets/images/icon-link.svg';
 //   return info;
 // };
 
-const Timer = () => {
+const Timer = ({ realUsers }) => {
   const [users, setUsers] = useState(0);
 
   useEffect(() => {
-    if (users === 10) return users;
+    if (users === realUsers) return users;
     const interval = setInterval(() => {
       setUsers(users + 1);
-    }, 100);
+    }, 10);
     return () => clearInterval(interval);
   }, [users]);
   return users;
 };
 
-const Home = () => {
-  // const users = Parsing();
+Timer.propTypes = {
+  realUsers: PropTypes.node.isRequired,
+};
 
+const Home = () => {
+  // const realUsers = Parsing();
+  const realUsers = 100;
   return (
     <Group>
       <RoundedText>project. mkdev</RoundedText>
@@ -59,7 +64,7 @@ const Home = () => {
         <Button>개발 성향 알아보기</Button>
       </StyledLink>
       <MainTitle gutterBottom>
-        <Timer />
+        <Timer realUsers={realUsers} />
       </MainTitle>
       <SubTitle>공유하기</SubTitle>
       <Share>
