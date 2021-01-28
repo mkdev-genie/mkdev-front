@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+// import axios from 'axios';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Button from '@/components/Button';
@@ -12,33 +13,69 @@ import IconFacebook from '@/assets/images/icon-facebook.svg';
 import IconKakao from '@/assets/images/icon-kakaotalk.svg';
 import IconLink from '@/assets/images/icon-link.svg';
 
-const Home = () => (
-  <Group>
-    <RoundedText>project. mkdev</RoundedText>
-    <MainTitle gutterBottom>개발 포지션 테스트</MainTitle>
-    <BodyText>
-      개발에도 MBTI가 있다!
-      <br />
-      나에게 가장 어울리는 개발 포지션은?
-    </BodyText>
-    <Image>그림</Image>
-    <StyledLink to="/question">
-      <Button>개발 성향 알아보기</Button>
-    </StyledLink>
-    <SubTitle>공유하기</SubTitle>
-    <Share>
-      <ShareButton className="icon-kakao">
-        <img src={IconKakao} alt="kakaotalk" />
-      </ShareButton>
-      <ShareButton className="icon-facebook">
-        <img src={IconFacebook} alt="facebook" />
-      </ShareButton>
-      <ShareButton className="icon-link">
-        <img src={IconLink} alt="link" />
-      </ShareButton>
-    </Share>
-  </Group>
-);
+// const Parsing = () => {
+//   const [info, setInfo] = useState();
+//   useEffect(() => {
+//     const apiCall = async () => {
+//       const { data } = await axios.get('http://localhost:3000/users');
+//       const temp = data.resolved;
+//       setInfo(temp);
+//     };
+//     apiCall();
+//   }, []);
+
+//   if (!info) return null;
+
+//   return info;
+// };
+
+const Timer = () => {
+  const [users, setUsers] = useState(0);
+
+  useEffect(() => {
+    if (users === 10) return users;
+    const interval = setInterval(() => {
+      setUsers(users + 1);
+    }, 100);
+    return () => clearInterval(interval);
+  }, [users]);
+  return users;
+};
+
+const Home = () => {
+  // const users = Parsing();
+
+  return (
+    <Group>
+      <RoundedText>project. mkdev</RoundedText>
+      <MainTitle gutterBottom>개발 포지션 테스트</MainTitle>
+      <BodyText>
+        개발에도 MBTI가 있다!
+        <br />
+        나에게 가장 어울리는 개발 포지션은?
+      </BodyText>
+      <Image>그림</Image>
+      <StyledLink to="/question">
+        <Button>개발 성향 알아보기</Button>
+      </StyledLink>
+      <MainTitle gutterBottom>
+        <Timer />
+      </MainTitle>
+      <SubTitle>공유하기</SubTitle>
+      <Share>
+        <ShareButton className="icon-kakao">
+          <img src={IconKakao} alt="kakaotalk" />
+        </ShareButton>
+        <ShareButton className="icon-facebook">
+          <img src={IconFacebook} alt="facebook" />
+        </ShareButton>
+        <ShareButton className="icon-link">
+          <img src={IconLink} alt="link" />
+        </ShareButton>
+      </Share>
+    </Group>
+  );
+};
 
 const StyledLink = styled(Link)`
   display: block;
