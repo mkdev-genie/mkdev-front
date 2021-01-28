@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Button from '@/components/Button';
 import MainTitle from '@/components/MainTitle';
@@ -34,17 +33,14 @@ const Timer = ({ realUsers }) => {
   const [users, setUsers] = useState(0);
 
   useEffect(() => {
-    if (users === realUsers) return users;
+    if (users === realUsers) return;
     const interval = setInterval(() => {
       setUsers(users + 1);
     }, 10);
+    // eslint-disable-next-line consistent-return
     return () => clearInterval(interval);
-  }, [users]);
+  }, [users, realUsers]);
   return users;
-};
-
-Timer.propTypes = {
-  realUsers: PropTypes.node.isRequired,
 };
 
 const Home = () => {
@@ -60,12 +56,12 @@ const Home = () => {
         나에게 가장 어울리는 개발 포지션은?
       </BodyText>
       <Image>그림</Image>
-      <StyledLink to="/question">
-        <Button>개발 성향 알아보기</Button>
-      </StyledLink>
       <MainTitle gutterBottom>
         <Timer realUsers={realUsers} />
       </MainTitle>
+      <StyledLink to="/question">
+        <Button>개발 성향 알아보기</Button>
+      </StyledLink>
       <SubTitle>공유하기</SubTitle>
       <Share>
         <ShareButton className="icon-kakao">
