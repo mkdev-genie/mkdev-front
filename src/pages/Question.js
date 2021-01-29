@@ -3,6 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { Redirect } from 'react-router-dom';
 import Button from '@/components/Button';
+import Loading from '@/components/Loading';
 import tmp from '@/assets/images/tmp.png';
 
 const Parsing = () => {
@@ -36,6 +37,8 @@ const Question = () => {
 
   if (num === 15) return <Redirect to="/result" />;
 
+  if (!db) return <Loading />;
+
   return (
     <Group>
       <ProgressBar>
@@ -45,16 +48,15 @@ const Question = () => {
         <QNum>{num}</QNum>
         /14
       </TtlNum>
-      {db && <StyledQ>{db[num - 1].content}</StyledQ>}
+      <StyledQ>{db[num - 1].content}</StyledQ>
       <Image>그림</Image>
-      {db &&
-        db[num - 1].choices.map((choice, i) => {
-          return (
-            <Button onClick={onIncrease} type="light" id={i}>
-              {choice.content}
-            </Button>
-          );
-        })}
+      {db[num - 1].choices.map((choice, i) => {
+        return (
+          <Button onClick={onIncrease} type="light" id={i}>
+            {choice.content}
+          </Button>
+        );
+      })}
     </Group>
   );
 };
