@@ -31,15 +31,15 @@ const rotate = keyframes`
 	}
 `;
 const Spinner = styled.div`
-  width: 3em;
-  height: 3em;
+  width: ${({ theme }) => theme.spacing(4)};
+  height: ${({ theme }) => theme.spacing(4)};
   border-radius: 100%;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.color.light};
   animation: ${rotate} 1s infinite ease-in-out;
 `;
 const Text = styled.span`
-  margin-top: 2em;
-  font-size: 1.125em;
+  margin-top: ${({ theme }) => theme.spacing(2.5)};
+  font-size: ${({ theme }) => theme.fontSize.md};
   font-weight: 700;
-  color: #fff;
+  color: ${({ theme }) => theme.color.light};
 `;
