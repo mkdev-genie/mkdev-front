@@ -26,7 +26,7 @@ const Question = () => {
   const [num, setNum] = useState(1);
   const [type, setType] = useState(new Array(12).fill(0));
   const steps = Math.floor((num / 14) * 100);
-  console.log(Math.max.apply(null, type));
+
   const onIncrease = (e) => {
     setNum(num + 1);
     setType(
@@ -34,7 +34,8 @@ const Question = () => {
     );
   };
 
-  if (num === 15) return <Redirect to="/result" />;
+  const resultNum = type.indexOf(Math.max.apply(null, type)) + 1;
+  if (num === 15) return <Redirect to={`/result/${resultNum}`} />;
 
   return (
     <Group>
