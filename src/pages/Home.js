@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Button from '@/components/Button';
@@ -13,30 +13,30 @@ import IconFacebook from '@/assets/images/icon-facebook.svg';
 import IconKakao from '@/assets/images/icon-kakaotalk.svg';
 import IconLink from '@/assets/images/icon-link.svg';
 
-// const Parsing = () => {
-//   const [info, setInfo] = useState();
-//   useEffect(() => {
-//     const apiCall = async () => {
-//       const { data } = await axios.get('http://localhost:3000/users');
-//       const temp = data.resolved;
-//       setInfo(temp);
-//     };
-//     apiCall();
-//   }, []);
+const Parsing = () => {
+  const [info, setInfo] = useState();
+  useEffect(() => {
+    const apiCall = async () => {
+      const { data } = await axios.get('http://localhost:3000/users');
+      const temp = data.result;
+      setInfo(temp);
+    };
+    apiCall();
+  }, []);
 
-//   if (!info) return null;
+  if (!info) return null;
 
-//   return info;
-// };
+  return info;
+};
 
 const Timer = ({ realUsers }) => {
-  const [users, setUsers] = useState(0);
+  const [users, setUsers] = useState(realUsers - 300);
 
   useEffect(() => {
     if (users === realUsers) return;
     const interval = setInterval(() => {
       setUsers(users + 1);
-    }, 10);
+    }, 1);
     // eslint-disable-next-line consistent-return
     return () => clearInterval(interval);
   }, [users, realUsers]);
@@ -44,8 +44,7 @@ const Timer = ({ realUsers }) => {
 };
 
 const Home = () => {
-  // const realUsers = Parsing();
-  const realUsers = 100;
+  const realUsers = 10000 + Parsing();
   return (
     <Group>
       <RoundedText>project. mkdev</RoundedText>
