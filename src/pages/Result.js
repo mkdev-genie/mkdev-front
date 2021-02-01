@@ -47,37 +47,19 @@ const Result = ({ match }) => {
   return (
     <Group>
       <RoundedText>나와 가장 어울리는 개발자는</RoundedText>
-      <MainTitle>에이다 러브레이스</MainTitle>
+      <MainTitle>{info && info.nameKR}</MainTitle>
       <BodyText>
-        Ada Lovelace
+        {info && info.nameEN}
         <VerticalLine />
-        컴퓨터 언어의 창시자
+        {info && info.summary}
       </BodyText>
       <Image />
       <Quotes img={ImgQuote}>
-        <QuotesTitle>
-          중요한 목표는 계산을 완료하는 데 필요한 시간을 최소한으로 줄이는
-          배열을 선택하는 것이다.
-        </QuotesTitle>
-        <QuotesSubtitle>
-          One essential object is to choose that arrangement which shall tend to
-          reduce to a minimum the time necessary for completing the calculation.
-        </QuotesSubtitle>
+        <QuotesTitle>{info && info.quoteKR}</QuotesTitle>
+        <QuotesSubtitle>{info && info.quoteEN}</QuotesSubtitle>
       </Quotes>
       <SubTitle>당신은 이런 사람</SubTitle>
-      <ul>
-        <ListItem>체계적이고 효율적인 코드를 사랑해요.</ListItem>
-        <ListItem>
-          자기만의 시간을 갖고 사색한 내용을 글로 남기는 것을 좋아해요.
-        </ListItem>
-        <ListItem>체계적이고 효율적인 코드를 사랑해요.</ListItem>
-        <ListItem>
-          자기만의 시간을 갖고 사색한 내용을 글로 남기는 것을 좋아해요.
-        </ListItem>
-        <ListItem>
-          자기만의 시간을 갖고 사색한 내용을 글로 남기는 것을 좋아해요.
-        </ListItem>
-      </ul>
+      <ul>{info && info.descriptions.map((i) => <ListItem>{i}</ListItem>)}</ul>
       <SubTitle>내 결과 공유하기</SubTitle>
       <Share>
         <ShareButton className="icon-kakao">
