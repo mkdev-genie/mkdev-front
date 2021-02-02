@@ -48,19 +48,20 @@ const Home = () => {
   return (
     <Group>
       <RoundedText>project. mkdev</RoundedText>
-      <MainTitle gutterBottom>개발 포지션 테스트</MainTitle>
+      <MainTitle gutterBottom>나와 어울리는 개발자 찾기</MainTitle>
       <BodyText>
-        개발에도 MBTI가 있다!
+        세상은 넓고 유명한 개발자는 많다.
         <br />
-        나에게 가장 어울리는 개발 포지션은?
+        나와 가장 잘 맞는 개발자는 누구인지 알아보자!
       </BodyText>
       <Image>그림</Image>
-      <MainTitle gutterBottom>
-        <Timer realUsers={realUsers} />
-      </MainTitle>
       <StyledLink to="/question">
-        <Button>개발 성향 알아보기</Button>
+        <Button>테스트 시작하기</Button>
       </StyledLink>
+      <SubTitle>참여자 수</SubTitle>
+      <Count>
+        <Timer realUsers={realUsers} />
+      </Count>
       <SubTitle>공유하기</SubTitle>
       <Share>
         <ShareButton className="icon-kakao">
@@ -100,6 +101,12 @@ const Image = styled.div`
   height: 200px;
   margin: ${({ theme }) => theme.spacing(5)} 0;
   background-image: url(${tmp});
+`;
+
+const Count = styled.div`
+  font-size: ${({ theme }) => theme.fontSize.xl};
+  font-weight: 400;
+  color: ${({ theme }) => theme.color.light};
 `;
 
 export default Home;
