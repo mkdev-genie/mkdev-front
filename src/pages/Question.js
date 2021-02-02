@@ -35,7 +35,8 @@ const Question = () => {
     );
   };
 
-  if (num === 15) return <Redirect to="/result" />;
+  const resultNum = type.indexOf(Math.max.apply(null, type)) + 1;
+  if (num === 15) return <Redirect to={`/result/${resultNum}`} />;
 
   if (!db) return <Loading />;
 

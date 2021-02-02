@@ -18,8 +18,8 @@ const GlobalStyle = createGlobalStyle`
   dl, dt, dd, ol, ul, li,
   fieldset, form, label, legend,
   table, caption, tbody, tfoot, thead, tr, th, td,
-  article, aside, canvas, details, embed, 
-  figure, figcaption, footer, header, hgroup, 
+  article, aside, canvas, details, embed,
+  figure, figcaption, footer, header, hgroup,
   menu, nav, output, ruby, section, summary,
   time, mark, audio, video {
     margin: 0;
@@ -67,7 +67,7 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Switch>
         <Route path="/question" component={Question} />
-        <Route path="/result" component={Result} />
+        <Route path="/result/:id" component={Result} />
       </Switch>
     </Theme>
   </BrowserRouter>

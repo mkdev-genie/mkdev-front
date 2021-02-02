@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+// import Loading from '@/components/Loading';
 import MainTitle from '@/components/MainTitle';
 import SubTitle from '@/components/SubTitle';
 import BodyText from '@/components/BodyText';
@@ -12,54 +15,70 @@ import IconKakao from '@/assets/images/icon-kakaotalk.svg';
 import IconLink from '@/assets/images/icon-link.svg';
 import ImgQuote from '@/assets/images/img-quote.png';
 
-const Result = () => (
-  <Group>
-    <RoundedText>나와 가장 어울리는 개발자는</RoundedText>
-    <MainTitle>에이다 러브레이스</MainTitle>
-    <BodyText>
-      Ada Lovelace
-      <VerticalLine />
-      컴퓨터 언어의 창시자
-    </BodyText>
-    <Image />
-    <Quotes img={ImgQuote}>
-      <QuotesTitle>
-        중요한 목표는 계산을 완료하는 데 필요한 시간을 최소한으로 줄이는 배열을
-        선택하는 것이다.
-      </QuotesTitle>
-      <QuotesSubtitle>
-        One essential object is to choose that arrangement which shall tend to
-        reduce to a minimum the time necessary for completing the calculation.
-      </QuotesSubtitle>
-    </Quotes>
-    <SubTitle>당신은 이런 사람</SubTitle>
-    <ul>
-      <ListItem>체계적이고 효율적인 코드를 사랑해요.</ListItem>
-      <ListItem>
-        자기만의 시간을 갖고 사색한 내용을 글로 남기는 것을 좋아해요.
-      </ListItem>
-      <ListItem>체계적이고 효율적인 코드를 사랑해요.</ListItem>
-      <ListItem>
-        자기만의 시간을 갖고 사색한 내용을 글로 남기는 것을 좋아해요.
-      </ListItem>
-      <ListItem>
-        자기만의 시간을 갖고 사색한 내용을 글로 남기는 것을 좋아해요.
-      </ListItem>
-    </ul>
-    <SubTitle>내 결과 공유하기</SubTitle>
-    <Share>
-      <ShareButton className="icon-kakao">
-        <img src={IconKakao} alt="kakaotalk" />
-      </ShareButton>
-      <ShareButton className="icon-facebook">
-        <img src={IconFacebook} alt="facebook" />
-      </ShareButton>
-      <ShareButton className="icon-link">
-        <img src={IconLink} alt="link" />
-      </ShareButton>
-    </Share>
-  </Group>
-);
+const Parsing = (resultIdx) => {
+  const [info, setInfo] = useState();
+  useEffect(() => {
+    const apiCall = async () => {
+      await axios
+        .post('http://localhost:3000/results', {
+          result: resultIdx,
+        })
+        .then((response) => {
+          setInfo(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+    apiCall();
+  }, [resultIdx]);
+
+  if (!info) return null;
+
+  return info;
+};
+
+const Result = ({ match }) => {
+  const resultIdx = match.params.id;
+  const info = Parsing(resultIdx);
+  console.log(info);
+
+  // if (!info) return <Loading />;
+  return (
+    <Group>
+      <RoundedText>나와 가장 어울리는 개발자는</RoundedText>
+      <MainTitle>{info && info.nameKR}</MainTitle>
+      <BodyText>
+        {info && info.nameEN}
+        <VerticalLine />
+        {info && info.summary}
+      </BodyText>
+      <Image />
+      <Quotes img={ImgQuote}>
+        <QuotesTitle>{info && info.quoteKR}</QuotesTitle>
+        <QuotesSubtitle>{info && info.quoteEN}</QuotesSubtitle>
+      </Quotes>
+      <SubTitle>당신은 이런 사람</SubTitle>
+      <ul>{info && info.descriptions.map((i) => <ListItem>{i}</ListItem>)}</ul>
+      <SubTitle>내 결과 공유하기</SubTitle>
+      <Share>
+        <ShareButton className="icon-kakao">
+          <img src={IconKakao} alt="kakaotalk" />
+        </ShareButton>
+        <ShareButton className="icon-facebook">
+          <img src={IconFacebook} alt="facebook" />
+        </ShareButton>
+        <ShareButton className="icon-link">
+          <img src={IconLink} alt="link" />
+        </ShareButton>
+      </Share>
+    </Group>
+  );
+};
+
+Result.propTypes = {
+  match: PropTypes.node.isRequired,
+};
 
 const VerticalLine = styled.span`
   display: inline-block;
