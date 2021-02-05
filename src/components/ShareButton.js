@@ -2,13 +2,41 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const ShareButton = ({ className, children }) => (
-  <StyledShareButton className={className}>{children}</StyledShareButton>
-);
+const ShareButton = ({ className, children, type }) => {
+  const handleClick = (buttonType) => {
+    const PAGE_URL = window.location.href;
+    if (buttonType === 'kakao') {
+      console.log(buttonType);
+    } else if (buttonType === 'facebook') {
+      window.open(`http://www.facebook.com/sharer/sharer.php?u=${PAGE_URL}`);
+      console.log(buttonType);
+    } else {
+      const dummy = document.createElement('input');
+      document.body.appendChild(dummy);
+      dummy.value = PAGE_URL;
+      dummy.select();
+      document.execCommand('copy');
+      document.body.removeChild(dummy);
+      // eslint-disable-next-line no-alert
+      alert('URL이 복사되었습니다!');
+    }
+  };
+
+  return (
+    <StyledShareButton
+      className={className}
+      type={type}
+      onClick={() => handleClick(type)}
+    >
+      {children}
+    </StyledShareButton>
+  );
+};
 
 ShareButton.propTypes = {
   className: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 const StyledShareButton = styled.button`
