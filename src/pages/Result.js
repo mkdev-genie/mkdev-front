@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-// import Loading from '@/components/Loading';
+import Loading from '@/components/Loading';
 import MainTitle from '@/components/MainTitle';
 import SubTitle from '@/components/SubTitle';
 import BodyText from '@/components/BodyText';
@@ -20,7 +20,7 @@ const Parsing = (resultIdx) => {
   useEffect(() => {
     const apiCall = async () => {
       await axios
-        .post('http://localhost:3000/results', {
+        .post('http://13.124.204.130:3000/results', {
           result: resultIdx,
         })
         .then((response) => {
@@ -41,25 +41,28 @@ const Parsing = (resultIdx) => {
 const Result = ({ match }) => {
   const resultIdx = match.params.id;
   const info = Parsing(resultIdx);
-  console.log(info);
 
-  // if (!info) return <Loading />;
+  if (!info) return <Loading />;
   return (
     <Group>
       <RoundedText>나와 가장 어울리는 개발자는</RoundedText>
-      <MainTitle>{info && info.nameKR}</MainTitle>
+      <MainTitle>{info.nameKR}</MainTitle>
       <BodyText>
-        {info && info.nameEN}
+        {info.nameEN}
         <VerticalLine />
-        {info && info.summary}
+        {info.summary}
       </BodyText>
       <Image />
       <Quotes img={ImgQuote}>
-        <QuotesTitle>{info && info.quoteKR}</QuotesTitle>
-        <QuotesSubtitle>{info && info.quoteEN}</QuotesSubtitle>
+        <QuotesTitle>{info.quoteKR}</QuotesTitle>
+        <QuotesSubtitle>{info.quoteEN}</QuotesSubtitle>
       </Quotes>
       <SubTitle>당신은 이런 사람</SubTitle>
-      <ul>{info && info.descriptions.map((i) => <ListItem>{i}</ListItem>)}</ul>
+      <ul>
+        {info.descriptions.map((i) => (
+          <ListItem>{i}</ListItem>
+        ))}
+      </ul>
       <SubTitle>내 결과 공유하기</SubTitle>
       <Share>
         <ShareButton className="icon-kakao">

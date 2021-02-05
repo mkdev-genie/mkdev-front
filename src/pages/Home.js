@@ -17,7 +17,7 @@ const Parsing = () => {
   const [info, setInfo] = useState();
   useEffect(() => {
     const apiCall = async () => {
-      const { data } = await axios.get('http://localhost:3000/users');
+      const { data } = await axios.get('http://13.124.204.130:3000/users');
       const temp = data.result;
       setInfo(temp);
     };
