@@ -41,25 +41,28 @@ const Parsing = (resultIdx) => {
 const Result = ({ match }) => {
   const resultIdx = match.params.id;
   const info = Parsing(resultIdx);
-  console.log(info);
 
   if (!info) return <Loading />;
   return (
     <Group>
       <RoundedText>나와 가장 어울리는 개발자는</RoundedText>
-      <MainTitle>{info && info.nameKR}</MainTitle>
+      <MainTitle>{info.nameKR}</MainTitle>
       <BodyText>
-        {info && info.nameEN}
+        {info.nameEN}
         <VerticalLine />
-        {info && info.summary}
+        {info.summary}
       </BodyText>
       <Image />
       <Quotes img={ImgQuote}>
-        <QuotesTitle>{info && info.quoteKR}</QuotesTitle>
-        <QuotesSubtitle>{info && info.quoteEN}</QuotesSubtitle>
+        <QuotesTitle>{info.quoteKR}</QuotesTitle>
+        <QuotesSubtitle>{info.quoteEN}</QuotesSubtitle>
       </Quotes>
       <SubTitle>당신은 이런 사람</SubTitle>
-      <ul>{info && info.descriptions.map((i) => <ListItem>{i}</ListItem>)}</ul>
+      <ul>
+        {info.descriptions.map((i) => (
+          <ListItem>{i}</ListItem>
+        ))}
+      </ul>
       <SubTitle>내 결과 공유하기</SubTitle>
       <Share>
         <ShareButton className="icon-kakao">
