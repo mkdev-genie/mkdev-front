@@ -8,7 +8,9 @@ const ShareButton = ({ className, children, type }) => {
     if (buttonType === 'kakao') {
       console.log(buttonType);
     } else if (buttonType === 'facebook') {
-      window.open(`http://www.facebook.com/sharer/sharer.php?u=${PAGE_URL}`);
+      window.open(
+        `http://www.facebook.com/sharer/sharer.php?u=https://mkdev.netlify.app/`,
+      );
       console.log(buttonType);
     } else {
       const dummy = document.createElement('input');
