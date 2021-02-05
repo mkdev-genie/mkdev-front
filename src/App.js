@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
@@ -60,17 +61,34 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const App = () => (
-  <BrowserRouter>
-    <Theme>
-      <GlobalStyle />
-      <Route exact path="/" component={Home} />
-      <Switch>
-        <Route path="/question" component={Question} />
-        <Route path="/result/:id" component={Result} />
-      </Switch>
-    </Theme>
-  </BrowserRouter>
-);
+const App = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://developers.kakao.com/sdk/js/kakao.js';
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+  return (
+    <>
+      {/* Include Kakao sdk */}
+      <Helmet>
+        <script src="https://developers.kakao.com/sdk/js/kakao.js" />
+      </Helmet>
+      <BrowserRouter>
+        <Theme>
+          <GlobalStyle />
+          <Route exact path="/" component={Home} />
+          <Switch>
+            <Route path="/question" component={Question} />
+            <Route path="/result/:id" component={Result} />
+          </Switch>
+        </Theme>
+      </BrowserRouter>
+    </>
+  );
+};
 
 export default App;
