@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-// import Loading from '@/components/Loading';
+import Loading from '@/components/Loading';
 import MainTitle from '@/components/MainTitle';
 import SubTitle from '@/components/SubTitle';
 import BodyText from '@/components/BodyText';
@@ -20,7 +20,7 @@ const Parsing = (resultIdx) => {
   useEffect(() => {
     const apiCall = async () => {
       await axios
-        .post('http://localhost:3000/results', {
+        .post('http://13.124.204.130:3000/results', {
           result: resultIdx,
         })
         .then((response) => {
@@ -43,7 +43,7 @@ const Result = ({ match }) => {
   const info = Parsing(resultIdx);
   console.log(info);
 
-  // if (!info) return <Loading />;
+  if (!info) return <Loading />;
   return (
     <Group>
       <RoundedText>나와 가장 어울리는 개발자는</RoundedText>
