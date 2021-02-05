@@ -64,13 +64,13 @@ const Home = () => {
       </Count>
       <SubTitle>공유하기</SubTitle>
       <Share>
-        <ShareButton className="icon-kakao">
+        <ShareButton className="icon-kakao" type="kakao">
           <img src={IconKakao} alt="kakaotalk" />
         </ShareButton>
-        <ShareButton className="icon-facebook">
+        <ShareButton className="icon-facebook" type="facebook">
           <img src={IconFacebook} alt="facebook" />
         </ShareButton>
-        <ShareButton className="icon-link">
+        <ShareButton className="icon-link" type="link">
           <img src={IconLink} alt="link" />
         </ShareButton>
       </Share>
