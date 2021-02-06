@@ -20,7 +20,8 @@ const ShareButton = ({ className, children, type }) => {
         content: {
           title: '타이틀',
           description: '#리액트 #카카오 #공유버튼',
-          imageUrl: 'IMAGE_URL', // i.e. process.env.FETCH_URL + '/logo.png'
+          imageUrl:
+            'https://cdn.vox-cdn.com/thumbor/ngQ0Dft-omo2WhyiXmDJSYvgCBY=/0x0:1200x669/1200x800/filters:focal(504x238:696x430)/cdn.vox-cdn.com/uploads/chorus_image/image/64581600/1829267.0.jpg', // i.e. process.env.FETCH_URL + '/logo.png'
           link: {
             mobileWebUrl: window.location.href,
             webUrl: window.location.href,
