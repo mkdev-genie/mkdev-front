@@ -10,7 +10,7 @@ const Parsing = () => {
   const [info, setInfo] = useState();
   useEffect(() => {
     const apiCall = async () => {
-      const { data } = await axios.get('http://13.124.204.130:3000/questions');
+      const { data } = await axios.get('https://mkdev.o-r.kr/questions');
       const temp = data.resolved;
       setInfo(temp);
     };
