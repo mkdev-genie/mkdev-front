@@ -1,3 +1,4 @@
+![CI](https://github.com/mkdev-genie/mkdev-front/workflows/CI/badge.svg)
 # mkdev-front
 > 나에게 맞는 개발 포지션 찾기 심리테스트
 
