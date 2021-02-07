@@ -20,7 +20,7 @@ const Parsing = (resultIdx) => {
   useEffect(() => {
     const apiCall = async () => {
       await axios
-        .post('http://13.124.204.130:3000/results', {
+        .post('https://mkdev.o-r.kr/results', {
           result: resultIdx,
         })
         .then((response) => {
