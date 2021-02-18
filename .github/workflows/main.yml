@@ -2,7 +2,7 @@
 
 name: CI
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
@@ -25,24 +25,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout code
         uses: actions/checkout@v2
-          
-#       - name: Create .env file
-#         uses: SpicyPizza/create-envfile@v1.0
-#         with:
-#           envkey_REACT_FETCH_URL: "https://mkdev.netlify.app/"
-#           envkey_REACT_APP_KAKAO_KEY: ${{ secrets.REACT_APP_KAKAO_KEY }}
-      - name: create .env
-        shell: bash
-#         env:
-#           KAKAO_KEY: ${{ secrets.REACT_APP_KAKAO_KEY }}
-        run: |
-          touch .env
-          echo REACT_FETCH_URL="https://mkdev.netlify.app/" >> .env
-          echo REACT_APP_KAKAO_KEY="15991415f24d2e2ceadacfdeb3557840" >> .env
-          cat .env
+
       - name: Install dependencies
         run: npm ci
-      
+
       - name: Build package
         run: npm run build
 
