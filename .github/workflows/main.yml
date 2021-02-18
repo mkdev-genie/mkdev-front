@@ -23,14 +23,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build package
-        run: npm run build
+      - uses: actions/checkout@v2
+      - run: npm ci
+      - run: npm run build
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
