@@ -31,17 +31,15 @@ jobs:
 #         with:
 #           envkey_REACT_FETCH_URL: "https://mkdev.netlify.app/"
 #           envkey_REACT_APP_KAKAO_KEY: ${{ secrets.REACT_APP_KAKAO_KEY }}
-#       - name: create .env
-#         run: |
-#           touch .env
-#           echo REACT_FETCH_URL="https://mkdev.netlify.app/" >> .env
-#           echo REACT_APP_KAKAO_KEY=${{ secrets.REACT_APP_KAKAO_KEY }} >> .env
-#           cat .env
-      - name: create env
-        run: 'echo REACT_APP_KAKAO_KEY="$KAKAO_KEY" >> .env'
+      - name: create .env
         shell: bash
         env:
           KAKAO_KEY: ${{ secrets.REACT_APP_KAKAO_KEY }}
+        run: |
+          touch .env
+          echo REACT_FETCH_URL="https://mkdev.netlify.app/" >> .env
+          echo REACT_APP_KAKAO_KEY="$KAKAO_KEY" >> .env
+          cat .env
       - name: Install dependencies
         run: npm ci
       
