@@ -15,13 +15,14 @@ import IconKakao from '@/assets/images/icon-kakaotalk.svg';
 import IconLink from '@/assets/images/icon-link.svg';
 import ImgQuote from '@/assets/images/img-quote.png';
 
-const Parsing = (resultIdx) => {
+const Parsing = (resultIdx, isUser) => {
   const [info, setInfo] = useState();
   useEffect(() => {
     const apiCall = async () => {
       await axios
         .post('https://mkdev.o-r.kr/results', {
           result: resultIdx,
+          User: isUser,
         })
         .then((response) => {
           setInfo(response.data);
@@ -31,16 +32,17 @@ const Parsing = (resultIdx) => {
         });
     };
     apiCall();
-  }, [resultIdx]);
+  }, [resultIdx, isUser]);
 
   if (!info) return null;
 
   return info;
 };
 
-const Result = ({ match }) => {
+const Result = ({ location, match }) => {
+  const isUser = location.state;
   const resultIdx = match.params.id;
-  const info = Parsing(resultIdx);
+  const info = Parsing(resultIdx, isUser);
 
   if (!info) return <Loading />;
   return (
@@ -80,6 +82,7 @@ const Result = ({ match }) => {
 };
 
 Result.propTypes = {
+  location: PropTypes.node.isRequired,
   match: PropTypes.node.isRequired,
 };
 
