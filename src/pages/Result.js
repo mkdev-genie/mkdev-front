@@ -15,14 +15,14 @@ import IconKakao from '@/assets/images/icon-kakaotalk.svg';
 import IconLink from '@/assets/images/icon-link.svg';
 import ImgQuote from '@/assets/images/img-quote.png';
 
-const Parsing = (resultIdx, isUser) => {
+const Parsing = (resultIdx, isUserBool) => {
   const [info, setInfo] = useState();
   useEffect(() => {
     const apiCall = async () => {
       await axios
         .post('https://mkdev.o-r.kr/results', {
           result: resultIdx,
-          User: isUser,
+          isUser: isUserBool,
         })
         .then((response) => {
           setInfo(response.data);
@@ -32,7 +32,7 @@ const Parsing = (resultIdx, isUser) => {
         });
     };
     apiCall();
-  }, [resultIdx, isUser]);
+  }, [resultIdx, isUserBool]);
 
   if (!info) return null;
 
@@ -40,9 +40,14 @@ const Parsing = (resultIdx, isUser) => {
 };
 
 const Result = ({ location, match }) => {
-  const isUser = location.state;
+  const locState = location.state;
   const resultIdx = match.params.id;
-  const info = Parsing(resultIdx, isUser);
+
+  let isUserBool = true;
+  if (locState === undefined) {
+    isUserBool = false;
+  }
+  const info = Parsing(resultIdx, isUserBool);
 
   if (!info) return <Loading />;
   return (
