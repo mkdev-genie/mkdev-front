@@ -70,7 +70,6 @@ const Question = () => {
 const Group = styled.div`
   display: flex;
   flex-direction: column;
-  background: black;
   justify-content: center;
   align-items: center;
 `;
@@ -85,7 +84,7 @@ const Progress = styled.div`
 const ProgressBar = styled.div`
   width: 100%;
   height: 11px;
-  margin-bottom: ${({ theme }) => theme.spacing(3)};
+  margin-bottom: ${({ theme }) => theme.spacing(5)};
   border: 1px solid ${({ theme }) => theme.color.tertiary};
   box-sizing: border-box;
   border-radius: 19px;
@@ -99,7 +98,7 @@ const QNum = styled.div`
 
 const TtlNum = styled.div`
   display: flex;
-  margin-bottom: ${({ theme }) => theme.spacing(1)};
+  margin-bottom: ${({ theme }) => theme.spacing(2)};
   color: ${({ theme }) => theme.color.tertiary};
   font-style: normal;
   font-size: ${({ theme }) => theme.fontSize.md};
@@ -110,6 +109,8 @@ const StyledQ = styled.div`
   font-style: normal;
   font-weight: 500;
   font-size: ${({ theme }) => theme.fontSize.lg};
+  text-align: center;
+  line-height: ${({ theme }) => theme.spacing(3.5)};
 `;
 
 const Image = styled.div`

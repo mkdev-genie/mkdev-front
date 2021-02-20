@@ -11,9 +11,9 @@ BodyText.propTypes = {
 const StyledText = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing(1)};
   text-align: center;
-  line-height: 1.2rem;
+  line-height: ${({ theme }) => theme.spacing(3)};
   font-size: ${({ theme }) => theme.fontSize.xs};
-  font-weight: 300;
+  font-weight: 400;
   color: ${({ theme }) => theme.color.light};
 `;
 

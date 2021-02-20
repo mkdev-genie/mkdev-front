@@ -17,18 +17,18 @@ SubTitle.propTypes = {
 const StyledTitle = styled.div`
   position: flex;
   margin-top: ${({ theme }) => theme.spacing(5)};
-  margin-bottom: ${({ theme }) => theme.spacing(2)};
+  margin-bottom: ${({ theme }) => theme.spacing(1.5)};
   color: white;
   font-style: normal;
   font-weight: 500;
   font-size: ${({ theme }) => theme.fontSize.md};
-  line-height: 35px;
+  line-height: ${({ theme }) => theme.spacing(4)};
   text-align: center;
 `;
 
 const StyledBrace = styled.span`
   padding: 0 ${({ theme }) => theme.spacing(1)};
-  color: #e2f063;
+  color: ${({ theme }) => theme.color.primary};
 `;
 
 export default SubTitle;
