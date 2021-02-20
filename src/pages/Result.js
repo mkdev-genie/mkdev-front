@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Loading from '@/components/Loading';
 import MainTitle from '@/components/MainTitle';
 import SubTitle from '@/components/SubTitle';
 import BodyText from '@/components/BodyText';
+import Button from '@/components/Button';
 import RoundedText from '@/components/RoundedText';
 import ShareButton from '@/components/ShareButton';
 import ListItem from '@/components/ListItem';
@@ -82,6 +84,9 @@ const Result = ({ location, match }) => {
           <img src={IconLink} alt="link" />
         </ShareButton>
       </Share>
+      <StyledLink to="/">
+        <Button>다시하기</Button>
+      </StyledLink>
     </Group>
   );
 };
@@ -90,6 +95,12 @@ Result.propTypes = {
   location: PropTypes.node.isRequired,
   match: PropTypes.node.isRequired,
 };
+
+const StyledLink = styled(Link)`
+  display: block;
+  margin-top: ${({ theme }) => theme.spacing(4)};
+  width: 100%;
+`;
 
 const VerticalLine = styled.span`
   display: inline-block;
@@ -112,18 +123,18 @@ const Quotes = styled.div`
 
 const QuotesTitle = styled.p`
   text-align: center;
-  line-height: 1.2rem;
+  line-height: ${({ theme }) => theme.spacing(2.5)};
   font-size: ${({ theme }) => theme.fontSize.sm};
-  font-weight: 300;
+  font-weight: 400;
   color: ${({ theme }) => theme.color.light};
 `;
 
 const QuotesSubtitle = styled.p`
   margin-top: ${({ theme }) => theme.spacing(1)};
   text-align: center;
-  line-height: 1.2rem;
+  line-height: ${({ theme }) => theme.spacing(2.5)};
   font-size: ${({ theme }) => theme.fontSize.sm};
-  font-weight: 300;
+  font-weight: 400;
   font-style: italic;
   color: ${({ theme }) => theme.color.gray};
 `;
@@ -131,7 +142,6 @@ const QuotesSubtitle = styled.p`
 const Group = styled.div`
   display: flex;
   flex-direction: column;
-  background: black;
   justify-content: center;
   align-items: center;
 `;

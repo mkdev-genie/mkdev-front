@@ -6,9 +6,10 @@ import Button from '@/components/Button';
 import MainTitle from '@/components/MainTitle';
 import SubTitle from '@/components/SubTitle';
 import BodyText from '@/components/BodyText';
-import RoundedText from '@/components/RoundedText';
 import ShareButton from '@/components/ShareButton';
+import Footer from '@/components/Footer';
 import tmp from '@/assets/images/tmp.png';
+import IconWarning from '@/assets/images/icon-warning.png';
 import IconFacebook from '@/assets/images/icon-facebook.svg';
 import IconKakao from '@/assets/images/icon-kakaotalk.svg';
 import IconLink from '@/assets/images/icon-link.svg';
@@ -56,8 +57,8 @@ const Home = () => {
   const realUsers = 10000 + Parsing();
   return (
     <Group>
-      <RoundedText>project. mkdev</RoundedText>
-      <MainTitle gutterBottom>나와 어울리는 개발자 찾기</MainTitle>
+      <NoticeText>과몰입 주의</NoticeText>
+      <MainTitle gutterBottom>나와 똑 닮은 슈스 개발자는?</MainTitle>
       <BodyText>
         세상은 넓고 유명한 개발자는 많다.
         <br />
@@ -83,6 +84,7 @@ const Home = () => {
           <img src={IconLink} alt="link" />
         </ShareButton>
       </Share>
+      <Footer />
     </Group>
   );
 };
@@ -90,6 +92,15 @@ const Home = () => {
 const StyledLink = styled(Link)`
   display: block;
   width: 100%;
+`;
+
+const NoticeText = styled.span`
+  padding-top: ${({ theme }) => theme.spacing(4)};
+  margin-bottom: ${({ theme }) => theme.spacing(4)};
+  font-weight: 500;
+  color: ${({ theme }) => theme.color.tertiary};
+  background: url(${IconWarning}) no-repeat top center;
+  background-size: ${({ theme }) => theme.spacing(2)};
 `;
 
 const Group = styled.div`
@@ -115,6 +126,7 @@ const Image = styled.div`
 const Count = styled.div`
   font-size: ${({ theme }) => theme.fontSize.xl};
   font-weight: 400;
+  line-height: ${({ theme }) => theme.spacing(4)};
   color: ${({ theme }) => theme.color.light};
 `;
 

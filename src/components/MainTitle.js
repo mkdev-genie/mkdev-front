@@ -21,7 +21,7 @@ const StyledTitle = styled.div`
     gutterBottom ? theme.spacing(3) : theme.spacing(1)};
   font-size: ${({ theme }) => theme.fontSize.lg};
   font-weight: 500;
-  line-height: 35px;
+  line-height: ${({ theme }) => theme.spacing(4)};
   text-align: center;
   color: ${({ theme }) => theme.color.light};
 `;

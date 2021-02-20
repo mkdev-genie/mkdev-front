@@ -14,11 +14,11 @@ ListItem.propTypes = {
 const StyledText = styled.li`
   padding-left: ${({ theme }) => theme.spacing(2.5)};
   margin-bottom: ${({ theme }) => theme.spacing(1)};
-  line-height: 2rem;
+  line-height: ${({ theme }) => theme.spacing(3)};
   font-size: ${({ theme }) => theme.fontSize.xs};
-  font-weight: 300;
+  font-weight: 400;
   color: ${({ theme }) => theme.color.light};
-  background: url(${(props) => props.img}) no-repeat left 12px;
+  background: url(${(props) => props.img}) no-repeat left 8px;
   background-size: 10px auto;
 `;
 

@@ -98,28 +98,20 @@ const StyledShareButton = styled.button`
   border-radius: 1em;
   border: none;
   border: 1px solid ${({ theme }) => theme.color.primary};
-  background-color: black;
   box-sizing: border-box;
+  background: transparent;
+  outline: none;
   &:hover {
     cursor: pointer;
   }
   &.icon-kakao {
     border: 1px solid ${({ theme }) => theme.color.primary};
   }
-  &.icon-kakao:hover {
-    background-color: ${({ theme }) => theme.color.primary};
-  }
   &.icon-facebook {
     border: 1px solid ${({ theme }) => theme.color.secondary};
   }
-  &.icon-facebook:hover {
-    background-color: ${({ theme }) => theme.color.secondary};
-  }
   &.icon-link {
     border: 1px solid ${({ theme }) => theme.color.gray};
-  }
-  &.icon-link:hover {
-    background-color: ${({ theme }) => theme.color.gray};
   }
 `;
 

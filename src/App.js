@@ -27,6 +27,12 @@ const GlobalStyle = createGlobalStyle`
     border: 0;
     font-size: inherit;
     vertical-align: baseline;
+    word-break: keep-all;
+    -webkit-font-smoothing: antialiased;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
   }
   ol, ul {
     list-style: none;
@@ -48,7 +54,7 @@ const GlobalStyle = createGlobalStyle`
     justify-content: center;
     width: 100%;
     min-height: 100vh;
-    line-height: 1;
+    line-height: ${({ theme }) => theme.spacing(1)};
     font-family: ${({ theme }) => theme.fonts[0]} !important;
     background-color: ${({ theme }) => theme.color.dark};
   }

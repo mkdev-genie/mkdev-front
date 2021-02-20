@@ -29,9 +29,9 @@ const StyledButton = styled.button`
   font-style: normal;
   font-weight: 500;
   font-size: ${({ theme }) => theme.fontSize.md};
+  outline: none;
   &:hover {
     cursor: pointer;
-    background: yellow;
   }
 `;
 
