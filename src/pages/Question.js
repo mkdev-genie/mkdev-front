@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { Redirect } from 'react-router-dom';
 import Button from '@/components/Button';
 import Loading from '@/components/Loading';
-import tmp from '@/assets/images/tmp.png';
 
 const Parsing = () => {
   const [info, setInfo] = useState();
@@ -47,22 +46,25 @@ const Question = () => {
 
   return (
     <Group>
-      <ProgressBar>
-        <Progress width={steps} />
-      </ProgressBar>
-      <TtlNum>
-        <QNum>{num}</QNum>
-        /14
-      </TtlNum>
+      <ProgressWrapper>
+        <ProgressBar>
+          <Progress width={steps} />
+        </ProgressBar>
+        <TtlNum>
+          <QNum>{num}</QNum>
+          /&nbsp;14
+        </TtlNum>
+      </ProgressWrapper>
       <StyledQ>{db[num - 1].content}</StyledQ>
-      <Image>그림</Image>
-      {db[num - 1].choices.map((choice, i) => {
-        return (
-          <Button onClick={onIncrease} type="light" id={i}>
-            {choice.content}
-          </Button>
-        );
-      })}
+      <ButtonWrapper>
+        {db[num - 1].choices.map((choice, i) => {
+          return (
+            <Button onClick={onIncrease} type="light" id={i}>
+              {choice.content}
+            </Button>
+          );
+        })}
+      </ButtonWrapper>
     </Group>
   );
 };
@@ -70,8 +72,9 @@ const Question = () => {
 const Group = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  min-height: calc(100vh - ${({ theme }) => theme.spacing(10)});
 `;
 
 const Progress = styled.div`
@@ -98,6 +101,7 @@ const QNum = styled.div`
 
 const TtlNum = styled.div`
   display: flex;
+  justify-content: center;
   margin-bottom: ${({ theme }) => theme.spacing(2)};
   color: ${({ theme }) => theme.color.tertiary};
   font-style: normal;
@@ -105,6 +109,8 @@ const TtlNum = styled.div`
 `;
 
 const StyledQ = styled.div`
+  margin-top: ${({ theme }) => theme.spacing(4)};
+  margin-bottom: ${({ theme }) => theme.spacing(4)};
   color: white;
   font-style: normal;
   font-weight: 500;
@@ -113,11 +119,12 @@ const StyledQ = styled.div`
   line-height: ${({ theme }) => theme.spacing(3.5)};
 `;
 
-const Image = styled.div`
+const ButtonWrapper = styled.div`
   width: 100%;
-  height: 200px;
-  margin: ${({ theme }) => theme.spacing(5)} 0;
-  background-image: url(${tmp});
+`;
+const ProgressWrapper = styled.div`
+  width: 100%;
+  margin: 0 auto;
 `;
 
 export default Question;

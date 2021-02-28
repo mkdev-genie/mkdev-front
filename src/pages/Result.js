@@ -1,3 +1,5 @@
+/* eslint-disable import/no-dynamic-require */
+/* eslint-disable global-require */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
@@ -11,7 +13,7 @@ import Button from '@/components/Button';
 import RoundedText from '@/components/RoundedText';
 import ShareButton from '@/components/ShareButton';
 import ListItem from '@/components/ListItem';
-import tmp from '@/assets/images/tmp.png';
+
 import IconFacebook from '@/assets/images/icon-facebook.svg';
 import IconKakao from '@/assets/images/icon-kakaotalk.svg';
 import IconLink from '@/assets/images/icon-link.svg';
@@ -61,7 +63,12 @@ const Result = ({ location, match }) => {
         <VerticalLine />
         {info.summary}
       </BodyText>
-      <Image />
+      <Image>
+        <img
+          src={require(`@/assets/images/img-result${resultIdx}.png`)}
+          alt="result thumbnail"
+        />
+      </Image>
       <Quotes img={ImgQuote}>
         <QuotesTitle>{info.quoteKR}</QuotesTitle>
         <QuotesSubtitle>{info.quoteEN}</QuotesSubtitle>
@@ -148,9 +155,10 @@ const Group = styled.div`
 
 const Image = styled.div`
   width: 100%;
-  height: 200px;
-  margin: ${({ theme }) => theme.spacing(5)} 0;
-  background-image: url(${tmp});
+  margin: ${({ theme }) => theme.spacing(2)} 0;
+  & img {
+    width: 100%;
+  }
 `;
 
 const Share = styled.div`

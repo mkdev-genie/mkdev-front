@@ -16,30 +16,18 @@ const createKakaoButton = () => {
       container: '#kakao-link-btn',
       objectType: 'feed',
       content: {
-        title: '타이틀',
-        description: '#리액트 #카카오 #공유버튼',
+        title: '나와 똑 닮은 슈스 개발자는?',
+        description: '나와 가장 잘 맞는 개발자는 누구인지 알아보자!',
         imageUrl:
-          'https://cdn.vox-cdn.com/thumbor/ngQ0Dft-omo2WhyiXmDJSYvgCBY=/0x0:1200x669/1200x800/filters:focal(504x238:696x430)/cdn.vox-cdn.com/uploads/chorus_image/image/64581600/1829267.0.jpg', // i.e. process.env.FETCH_URL + '/logo.png'
+          'https://github.com/mkdev-genie/mkdev-front/blob/main/public/img-thumbnail.jpg', // i.e. process.env.FETCH_URL + '/logo.png'
         link: {
           mobileWebUrl: window.location.href,
           webUrl: window.location.href,
         },
       },
-      social: {
-        likeCount: 77,
-        commentCount: 55,
-        sharedCount: 333,
-      },
       buttons: [
         {
           title: '웹으로 보기',
-          link: {
-            mobileWebUrl: window.location.href,
-            webUrl: window.location.href,
-          },
-        },
-        {
-          title: '앱으로 보기',
           link: {
             mobileWebUrl: window.location.href,
             webUrl: window.location.href,

@@ -8,7 +8,8 @@ import SubTitle from '@/components/SubTitle';
 import BodyText from '@/components/BodyText';
 import ShareButton from '@/components/ShareButton';
 import Footer from '@/components/Footer';
-import tmp from '@/assets/images/tmp.png';
+
+import ImgMain from '@/assets/images/img-main.png';
 import IconWarning from '@/assets/images/icon-warning.png';
 import IconFacebook from '@/assets/images/icon-facebook.svg';
 import IconKakao from '@/assets/images/icon-kakaotalk.svg';
@@ -64,7 +65,9 @@ const Home = () => {
         <br />
         나와 가장 잘 맞는 개발자는 누구인지 알아보자!
       </BodyText>
-      <Image>그림</Image>
+      <Image>
+        <img src={ImgMain} alt="main thumbnail" />
+      </Image>
       <StyledLink to="/question">
         <Button>테스트 시작하기</Button>
       </StyledLink>
@@ -118,9 +121,10 @@ const Share = styled.div`
 
 const Image = styled.div`
   width: 100%;
-  height: 200px;
-  margin: ${({ theme }) => theme.spacing(5)} 0;
-  background-image: url(${tmp});
+  margin: ${({ theme }) => theme.spacing(2)} 0;
+  & img {
+    width: 100%;
+  }
 `;
 
 const Count = styled.div`
