@@ -1,7 +1,8 @@
 ![CI](https://github.com/mkdev-genie/mkdev-front/workflows/CI/badge.svg)
 # mkdev-front
-> 나에게 맞는 개발 포지션 찾기 심리테스트
+> 나와 똑 닮은 슈스 개발자 찾기 심리테스트
 
+![](https://github.com/mkdev-genie/mkdev-front/blob/main/public/img-thumbnail.jpg?raw=true)
 
 ## 🤝 Coding convention
 - 기본적인 협업 방식은 github flow를 따릅니다.
@@ -12,5 +13,10 @@
 
 ## 🔧 Credit
 - Language: JavaScript
-- Library & Framework: React.js, Redux, styled-components
+- Library & Framework: React.js, styled-components
 - Linter: ESLint
+
+## 🤝 Contributors
+🌱 jiyoon1156
+
+🐥 swimjiy
