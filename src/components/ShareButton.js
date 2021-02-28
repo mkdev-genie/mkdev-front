@@ -19,7 +19,7 @@ const createKakaoButton = () => {
         title: '나와 똑 닮은 슈스 개발자는?',
         description: '나와 가장 잘 맞는 개발자는 누구인지 알아보자!',
         imageUrl:
-          'https://github.com/mkdev-genie/mkdev-front/blob/main/public/img-thumbnail.jpg', // i.e. process.env.FETCH_URL + '/logo.png'
+          'https://github.com/mkdev-genie/mkdev-front/blob/main/public/img-thumbnail.jpg?raw=true', // i.e. process.env.FETCH_URL + '/logo.png'
         link: {
           mobileWebUrl: window.location.href,
           webUrl: window.location.href,
