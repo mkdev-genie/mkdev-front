@@ -58,9 +58,7 @@ const ShareButton = ({ className, children, type }) => {
   const handleClick = (buttonType) => {
     const PAGE_URL = window.location.href;
     if (buttonType === 'facebook') {
-      window.open(
-        `http://www.facebook.com/sharer/sharer.php?u=https://mkdev.netlify.app/`,
-      );
+      window.open(`http://www.facebook.com/sharer/sharer.php?u=${PAGE_URL}`);
     } else if (buttonType === 'link') {
       const dummy = document.createElement('input');
       document.body.appendChild(dummy);
