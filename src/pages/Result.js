@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import Loading from '@/components/Loading';
 import MainTitle from '@/components/MainTitle';
@@ -55,46 +56,63 @@ const Result = ({ location, match }) => {
 
   if (!info) return <Loading />;
   return (
-    <Group>
-      <RoundedText>나와 가장 어울리는 개발자는</RoundedText>
-      <MainTitle>{info.nameKR}</MainTitle>
-      <BodyText>
-        {info.nameEN}
-        <VerticalLine />
-        {info.summary}
-      </BodyText>
-      <Image>
-        <img
-          src={require(`@/assets/images/img-result${resultIdx}.png`)}
-          alt="result thumbnail"
+    <>
+      <Helmet>
+        <meta
+          property="og:description"
+          content={`${info.summary} ${info.nameKR}`}
         />
-      </Image>
-      <Quotes img={ImgQuote}>
-        <QuotesTitle>{info.quoteKR}</QuotesTitle>
-        <QuotesSubtitle>{info.quoteEN}</QuotesSubtitle>
-      </Quotes>
-      <SubTitle>당신은 이런 사람</SubTitle>
-      <ul>
-        {info.descriptions.map((i) => (
-          <ListItem>{i}</ListItem>
-        ))}
-      </ul>
-      <SubTitle>내 결과 공유하기</SubTitle>
-      <Share>
-        <ShareButton className="icon-kakao" type="kakao">
-          <img src={IconKakao} alt="kakaotalk" />
-        </ShareButton>
-        <ShareButton className="icon-facebook" type="facebook">
-          <img src={IconFacebook} alt="facebook" />
-        </ShareButton>
-        <ShareButton className="icon-link" type="link">
-          <img src={IconLink} alt="link" />
-        </ShareButton>
-      </Share>
-      <StyledLink to="/">
-        <Button>다시하기</Button>
-      </StyledLink>
-    </Group>
+        <meta
+          property="og:image"
+          content={require(`@/assets/images/img-result${resultIdx}.png`)}
+        />
+      </Helmet>
+      <Group>
+        <RoundedText>나와 가장 어울리는 개발자는</RoundedText>
+        <MainTitle>{info.nameKR}</MainTitle>
+        <BodyText>
+          {info.nameEN}
+          <VerticalLine />
+          {info.summary}
+        </BodyText>
+        <Image>
+          <img
+            src={require(`@/assets/images/img-result${resultIdx}.png`)}
+            alt="result thumbnail"
+          />
+        </Image>
+        <Quotes img={ImgQuote}>
+          <QuotesTitle>{info.quoteKR}</QuotesTitle>
+          <QuotesSubtitle>{info.quoteEN}</QuotesSubtitle>
+        </Quotes>
+        <SubTitle>당신은 이런 사람</SubTitle>
+        <ul>
+          {info.descriptions.map((i) => (
+            <ListItem>{i}</ListItem>
+          ))}
+        </ul>
+        <SubTitle>내 결과 공유하기</SubTitle>
+        <Share>
+          <ShareButton
+            className="icon-kakao"
+            type="kakao"
+            shareImgUrl={require(`@/assets/images/img-result${resultIdx}.png`)}
+            shareTitle={`${info.summary} ${info.nameKR}`}
+          >
+            <img src={IconKakao} alt="kakaotalk" />
+          </ShareButton>
+          <ShareButton className="icon-facebook" type="facebook">
+            <img src={IconFacebook} alt="facebook" />
+          </ShareButton>
+          <ShareButton className="icon-link" type="link">
+            <img src={IconLink} alt="link" />
+          </ShareButton>
+        </Share>
+        <StyledLink to="/">
+          <Button>다시하기</Button>
+        </StyledLink>
+      </Group>
+    </>
   );
 };
 
