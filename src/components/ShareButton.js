@@ -3,11 +3,6 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const createKakaoButton = (shareImgUrl, shareTitle) => {
-  const currentImageUrl =
-    shareImgUrl ||
-    'https://github.com/mkdev-genie/mkdev-front/blob/main/public/img-thumbnail.jpg?raw=true';
-  const currentDescription =
-    shareTitle || '나와 가장 잘 맞는 개발자를 알아보자!';
   // kakao sdk script이 정상적으로 불러와졌으면 window.Kakao로 접근이 가능합니다
   if (window.Kakao) {
     const kakao = window.Kakao;
@@ -22,8 +17,8 @@ const createKakaoButton = (shareImgUrl, shareTitle) => {
       objectType: 'feed',
       content: {
         title: '나와 똑 닮은 슈스 개발자는?',
-        description: currentDescription,
-        imageUrl: currentImageUrl, // i.e. process.env.FETCH_URL + '/logo.png'
+        description: shareTitle,
+        imageUrl: shareImgUrl, // i.e. process.env.FETCH_URL + '/logo.png'
         link: {
           webUrl: window.location.href,
         },
@@ -88,8 +83,9 @@ ShareButton.propTypes = {
 };
 
 ShareButton.defaultProps = {
-  shareImgUrl: undefined,
-  shareTitle: undefined,
+  shareImgUrl:
+    'https://github.com/mkdev-genie/mkdev-front/blob/main/public/img-thumbnail.jpg?raw=true',
+  shareTitle: '나와 가장 잘 맞는 개발자를 알아보자!',
 };
 
 const StyledShareButton = styled.button`
