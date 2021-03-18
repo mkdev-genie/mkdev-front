@@ -44,7 +44,7 @@ const ShareButton = ({
 }) => {
   useEffect(() => {
     if (type === 'kakao') createKakaoButton(shareImgUrl, shareTitle);
-  }, [type]);
+  }, [type, shareImgUrl, shareTitle]);
 
   const handleClick = (buttonType) => {
     const PAGE_URL = window.location.href;
