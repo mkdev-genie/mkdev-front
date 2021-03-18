@@ -96,7 +96,7 @@ const Result = ({ location, match }) => {
           <ShareButton
             className="icon-kakao"
             type="kakao"
-            shareImgUrl={require(`@/assets/images/img-result${resultIdx}.png`)}
+            shareImgUrl={`https://github.com/mkdev-genie/mkdev-front/blob/main/src/assets/images/img-result${resultIdx}.png?raw=true`}
             shareTitle={`${info.summary} ${info.nameKR}`}
           >
             <img src={IconKakao} alt="kakaotalk" />
