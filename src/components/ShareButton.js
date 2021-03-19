@@ -20,6 +20,7 @@ const createKakaoButton = (shareImgUrl, shareTitle) => {
         description: shareTitle,
         imageUrl: shareImgUrl, // i.e. process.env.FETCH_URL + '/logo.png'
         link: {
+          mobileWebUrl: window.location.href,
           webUrl: window.location.href,
         },
       },
