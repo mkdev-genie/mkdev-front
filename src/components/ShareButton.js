@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const createKakaoButton = () => {
+const createKakaoButton = (shareImgUrl, shareTitle) => {
   // kakao sdk script이 정상적으로 불러와졌으면 window.Kakao로 접근이 가능합니다
   if (window.Kakao) {
     const kakao = window.Kakao;
@@ -17,19 +17,16 @@ const createKakaoButton = () => {
       objectType: 'feed',
       content: {
         title: '나와 똑 닮은 슈스 개발자는?',
-        description: '나와 가장 잘 맞는 개발자는 누구인지 알아보자!',
-        imageUrl:
-          'https://github.com/mkdev-genie/mkdev-front/blob/main/public/img-thumbnail.jpg?raw=true', // i.e. process.env.FETCH_URL + '/logo.png'
+        description: shareTitle,
+        imageUrl: shareImgUrl, // i.e. process.env.FETCH_URL + '/logo.png'
         link: {
-          mobileWebUrl: window.location.href,
           webUrl: window.location.href,
         },
       },
       buttons: [
         {
-          title: '웹으로 보기',
+          title: '바로가기',
           link: {
-            mobileWebUrl: window.location.href,
             webUrl: window.location.href,
           },
         },
@@ -38,10 +35,16 @@ const createKakaoButton = () => {
   }
 };
 
-const ShareButton = ({ className, children, type }) => {
+const ShareButton = ({
+  className,
+  children,
+  type,
+  shareImgUrl,
+  shareTitle,
+}) => {
   useEffect(() => {
-    if (type === 'kakao') createKakaoButton();
-  }, [type]);
+    if (type === 'kakao') createKakaoButton(shareImgUrl, shareTitle);
+  }, [type, shareImgUrl, shareTitle]);
 
   const handleClick = (buttonType) => {
     const PAGE_URL = window.location.href;
@@ -75,6 +78,14 @@ ShareButton.propTypes = {
   className: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   type: PropTypes.string.isRequired,
+  shareImgUrl: PropTypes.string,
+  shareTitle: PropTypes.string,
+};
+
+ShareButton.defaultProps = {
+  shareImgUrl:
+    'https://github.com/mkdev-genie/mkdev-front/blob/main/public/img-thumbnail.jpg?raw=true',
+  shareTitle: '나와 가장 잘 맞는 개발자를 알아보자!',
 };
 
 const StyledShareButton = styled.button`
