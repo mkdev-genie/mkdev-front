@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
+import GlobalFonts from '@/assets/fonts/fonts';
+
 import Theme from './Theme';
 import Home from './pages/Home';
 import Question from './pages/Question';
@@ -21,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
   article, aside, canvas, details, embed,
   figure, figcaption, footer, header, hgroup,
   menu, nav, output, ruby, section, summary,
-  time, mark, audio, video {
+  time, mark, audio, video, button {
     margin: 0;
     padding: 0;
     border: 0;
@@ -29,6 +31,7 @@ const GlobalStyle = createGlobalStyle`
     vertical-align: baseline;
     word-break: keep-all;
     -webkit-font-smoothing: antialiased;
+    font-family: "Noto Sans KR", Helvetica, Arial, sans-serif;
   }
   a {
     color: inherit;
@@ -55,7 +58,6 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     min-height: 100vh;
     line-height: ${({ theme }) => theme.spacing(1)};
-    font-family: ${({ theme }) => theme.fonts[0]} !important;
     background-color: ${({ theme }) => theme.color.dark};
   }
   #root {
@@ -70,6 +72,7 @@ const App = () => (
   <BrowserRouter>
     <Theme>
       <GlobalStyle />
+      <GlobalFonts />
       <Route exact path="/" component={Home} />
       <Switch>
         <Route path="/question" component={Question} />

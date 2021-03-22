@@ -13,7 +13,6 @@ const theme = {
     light: '#FFF',
   },
   spacing: (size) => `${size / 2}rem`,
-  fonts: ['Noto Sans KR', 'sans-serif'],
   fontSize: {
     sm: '0.825rem',
     md: '1.125rem',
