@@ -40,6 +40,6 @@ const Spinner = styled.div`
 const Text = styled.span`
   margin-top: ${({ theme }) => theme.spacing(2.5)};
   font-size: ${({ theme }) => theme.fontSize.md};
-  font-weight: 700;
+  font-weight: 500;
   color: ${({ theme }) => theme.color.light};
 `;
