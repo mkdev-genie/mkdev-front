@@ -46,6 +46,17 @@ const Timer = ({ realUsers }) => {
 };
 
 const Home = () => {
+  const trackUsers = () => {
+    window.dataLayer.push({
+      event: 'start button',
+      eventProps: {
+        category: 'button',
+        action: 'start',
+        label: 'Home',
+        value: 1,
+      },
+    });
+  };
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://developers.kakao.com/sdk/js/kakao.js';
@@ -69,7 +80,7 @@ const Home = () => {
         <img src={ImgMain} alt="main thumbnail" />
       </Image>
       <StyledLink to="/question">
-        <Button>테스트 시작하기</Button>
+        <Button onClick={trackUsers}>테스트 시작하기</Button>
       </StyledLink>
       <SubTitle>참여자 수</SubTitle>
       <Count>
