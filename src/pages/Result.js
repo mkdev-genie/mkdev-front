@@ -25,7 +25,7 @@ const Parsing = (resultIdx, isUserBool) => {
   useEffect(() => {
     const apiCall = async () => {
       await axios
-        .post('https://mkdev.o-r.kr/results', {
+        .post('https://type.o-r.kr/results', {
           result: resultIdx,
           isUser: isUserBool,
         })

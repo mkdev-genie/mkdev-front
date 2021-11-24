@@ -9,9 +9,8 @@ const Parsing = () => {
   const [info, setInfo] = useState();
   useEffect(() => {
     const apiCall = async () => {
-      const { data } = await axios.get('https://mkdev.o-r.kr/questions');
-      const temp = data.resolved;
-      setInfo(temp);
+      const { data } = await axios.get('https://type.o-r.kr/questions');
+      setInfo(data);
     };
     apiCall();
   }, []);
