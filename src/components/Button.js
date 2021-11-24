@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
@@ -9,10 +10,10 @@ const Button = ({ onClick, type, children, id }) => (
 );
 
 Button.propTypes = {
-  onClick: PropTypes.node.isRequired,
-  type: PropTypes.node.isRequired,
+  onClick: PropTypes.any,
+  type: PropTypes.node,
   children: PropTypes.node.isRequired,
-  id: PropTypes.node.isRequired,
+  id: PropTypes.node,
 };
 
 const StyledButton = styled.button`

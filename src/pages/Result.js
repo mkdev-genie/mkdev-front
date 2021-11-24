@@ -26,7 +26,7 @@ const Parsing = (resultIdx, isUserBool) => {
     const apiCall = async () => {
       await axios
         .post('https://type.o-r.kr/results', {
-          result: resultIdx,
+          typeId: resultIdx,
           isUser: isUserBool,
         })
         .then((response) => {

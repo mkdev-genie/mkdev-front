@@ -9,12 +9,14 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['js', 'jsx'] }],
     'no-console': ['off'],
     'react/jsx-props-no-spreading': ['warn'],
+    "react/require-default-props": "off",
+    "react/forbid-prop-types": "off"
   },
   settings: {
     "import/resolver": {
       "alias": {
         "map": [["@", "./src"]]
       }
-    }
+    },
   }
 };

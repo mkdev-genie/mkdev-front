@@ -22,6 +22,7 @@ const Parsing = () => {
 
 const Question = () => {
   const db = Parsing();
+
   const [num, setNum] = useState(1);
   const [type, setType] = useState(new Array(12).fill(0));
   const steps = Math.floor((num / 14) * 100);
@@ -29,7 +30,7 @@ const Question = () => {
   const onIncrease = (e) => {
     setNum(num + 1);
     setType(
-      type.map((v, i) => v + db[num - 1].choices[e.target.id][`type${i + 1}`]),
+      type.map((v, i) => v + db[num - 1].choice[e.target.id][`type${i + 1}`]),
     );
   };
 
@@ -56,10 +57,10 @@ const Question = () => {
       </ProgressWrapper>
       <StyledQ>{db[num - 1].content}</StyledQ>
       <ButtonWrapper>
-        {db[num - 1].choices.map((choice, i) => {
+        {db[num - 1].choice.map((elem, i) => {
           return (
             <Button onClick={onIncrease} type="light" id={i}>
-              {choice.content}
+              {elem.content}
             </Button>
           );
         })}
